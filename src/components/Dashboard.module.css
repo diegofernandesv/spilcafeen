@@ -1,0 +1,295 @@
+.dashboard {
+    min-height: 100vh;
+    font-family:
+      Aeonik TRIAL,
+      -apple-system,
+      sans-serif;
+    display: flex;
+  }
+  .sidebar {
+    background-color: #ed1433;
+    border-radius: 0 50px 0 0;
+    flex-direction: column;
+    gap: 18px;
+    width: 311px;
+    padding: 191px 56px 0;
+    display: flex;
+  }
+  @media (width<=991px) {
+    .sidebar {
+      width: 250px;
+      padding: 150px 30px 0;
+    }
+  }
+  @media (width<=640px) {
+    .sidebar {
+      display: none;
+    }
+  }
+  .logo {
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 71px;
+    display: flex;
+  }
+  .logoText {
+    color: #fff;
+    font-family:
+      Rubik One,
+      sans-serif;
+    font-size: 20px;
+  }
+  .navLinks {
+    flex-direction: column;
+    gap: 18px;
+    display: flex;
+  }
+  .navItemactive,
+  .navItem {
+    color: #fff;
+    cursor: pointer;
+    align-items: center;
+    gap: 6px;
+    font-size: 20px;
+    display: flex;
+  }
+  .mainContent {
+    flex: 1;
+    padding: 115px 56px 40px;
+    position: relative;
+  }
+  @media (width<=991px) {
+    .mainContent {
+      padding: 80px 30px 30px;
+    }
+  }
+  @media (width<=640px) {
+    .mainContent {
+      padding: 60px 20px 20px;
+    }
+  }
+  .header {
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+    display: flex;
+  }
+  .welcome {
+    font-size: 48px;
+    font-weight: 700;
+  }
+  @media (width<=991px) {
+    .welcome {
+      font-size: 36px;
+    }
+  }
+  @media (width<=640px) {
+    .welcome {
+      font-size: 28px;
+    }
+  }
+  .time {
+    align-items: center;
+    gap: 2px;
+    font-size: 16px;
+    display: flex;
+  }
+  .alerts {
+    gap: 13px;
+    margin-bottom: 28px;
+    display: flex;
+  }
+  @media (width<=640px) {
+    .alerts {
+      flex-direction: column;
+    }
+  }
+  .alertCard {
+    background-color: #fafafa;
+    border-radius: 12px;
+    align-items: center;
+    gap: 4px;
+    width: 328px;
+    padding: 10px;
+    display: flex;
+    box-shadow: 0 1px 3px #0000000f;
+  }
+  @media (width<=640px) {
+    .alertCard {
+      width: 100%;
+    }
+  }
+  .alertText {
+    font-size: 12px;
+  }
+  .alertLink {
+    color: #ed1433;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+  .alertHighlight {
+    color: #ed1433;
+  }
+  .totalGames {
+    text-align: center;
+    background-color: #fafafa;
+    border-radius: 14px;
+    margin-bottom: 23px;
+    padding: 10px;
+    font-size: 40px;
+    box-shadow: 0 1px 3px #0000000f;
+  }
+  .gamesCount {
+    font-weight: 700;
+  }
+  .locationStats {
+    gap: 8px;
+    margin-bottom: 32px;
+    display: flex;
+  }
+  @media (width<=991px) {
+    .locationStats {
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+  }
+  @media (width<=640px) {
+    .locationStats {
+      flex-direction: column;
+    }
+  }
+  .statCard {
+    background-color: #fafafa;
+    border-radius: 12px;
+    width: 217px;
+    padding: 15px 22px;
+    box-shadow: 0 1px 3px #0000000f;
+  }
+  @media (width<=991px) {
+    .statCard {
+      width: calc(50% - 8px);
+    }
+  }
+  @media (width<=640px) {
+    .statCard {
+      width: 100%;
+    }
+  }
+  .location {
+    margin-bottom: 4px;
+    font-size: 16px;
+  }
+  .count {
+    color: #ed1433;
+    font-size: 36px;
+  }
+  .dashboardContent {
+    gap: 15px;
+    display: flex;
+  }
+  @media (width<=991px) {
+    .dashboardContent {
+      flex-direction: column;
+    }
+  }
+  .ratingsSection {
+    background-color: #fafafa;
+    border-radius: 20px;
+    width: 442px;
+    padding: 20px;
+    box-shadow: 0 1px 3px #0000000f;
+  }
+  @media (width<=991px) {
+    .ratingsSection {
+      width: 100%;
+    }
+  }
+  .sectionTitle {
+    margin-bottom: 20px;
+    font-size: 24px;
+  }
+  .ratingsChart {
+    justify-content: center;
+    align-items: flex-end;
+    gap: 46px;
+    display: flex;
+  }
+  .chartBarsecond,
+  .chartBarfirst,
+  .chartBarthird {
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+  }
+  .newGames {
+    flex: 1;
+  }
+  @media (width<=991px) {
+    .newGames {
+      width: 100%;
+    }
+  }
+  .gameCards {
+    flex-direction: column;
+    gap: 11px;
+    display: flex;
+  }
+  .gameCard {
+    color: #fff;
+    background: linear-gradient(90deg, #ed1433c7, #ed1433c7);
+    border-radius: 20px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 23px 39px;
+    font-size: 32px;
+    display: flex;
+  }
+  .actionButtons {
+    gap: 15px;
+    margin-top: 22px;
+    display: flex;
+  }
+  @media (width<=640px) {
+    .actionButtons {
+      flex-direction: column;
+    }
+  }
+  .actionBtnaddBtn {
+    color: #fff;
+    cursor: pointer;
+    background-color: #ed1433;
+    border: none;
+    border-radius: 12px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 270px;
+    padding: 19px;
+    font-size: 24px;
+    display: flex;
+  }
+  @media (width<=640px) {
+    .actionBtnaddBtn {
+      width: 100%;
+    }
+  }
+  .actionBtnmanageBtn {
+    color: #fff;
+    cursor: pointer;
+    background-color: #ed1433;
+    border: none;
+    border-radius: 12px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 270px;
+    padding: 19px;
+    font-size: 24px;
+    display: flex;
+  }
+  @media (width<=640px) {
+    .actionBtnmanageBtn {
+      width: 100%;
+    }
+  }
+  
