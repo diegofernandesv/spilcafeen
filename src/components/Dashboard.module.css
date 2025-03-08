@@ -2,7 +2,6 @@ body {
   background-color: white;
 }
 
-
 .dashboard {
   min-height: 100vh;
   font-family: Aeonik TRIAL, -apple-system, sans-serif;
@@ -16,18 +15,154 @@ body {
   width: 311px;
   padding: 100px 56px 0;
   display: flex;
+  transition: transform 0.3s ease-in-out;
+  transform: translateX(0); /* Ensure sidebar is visible on larger screens */
 }
 
-@media (width<=991px) {
+.sidebar.open {
+  transform: translateX(0);
+}
+
+/* Burger Menu Icon */
+.burgerMenu {
+  display: none; /* Hide by default */
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+
+}
+
+.burgerMenu span {
+  width: 24px;
+  height: 3px;
+  background-color: #000;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  border-radius: 5px;
+
+}
+
+/* Burger Menu Animation */
+.burgerMenu.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+  border-radius: 5px;
+}
+
+.burgerMenu.active span:nth-child(2) {
+  opacity: 0;
+  border-radius: 5px;
+}
+
+.burgerMenu.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6.0px, -6.5px);
+  border-radius: 5px;
+}
+
+/* Show burger menu on smaller devices */
+@media (max-width: 640px) {
+  .burgerMenu {
+    display: flex;
+  }
+
   .sidebar {
-    width: 250px;
-    padding: 80px 30px 0;
+    display: none; /* Hide sidebar by default on smaller devices */
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 1000px;
+    z-index: 1000;
+    transform: translateX(-100%);
+    transition: transform 0.5s ease-in-out;
+  }
+
+  .sidebar.open {
+    display: flex; /* Show sidebar when open */
+    transform: translateX(0);
+  }
+}
+/* Example styles for better burger menu and close button */
+@media (max-width: 768px) {
+  .header {
+    padding: 16px 16px;
+    position: relative;
+  }
+
+  .logo {
+    margin-left: 16px;
+  }
+
+  .navbar {
+    display: none;
+    flex-direction: column;
+    gap: 18px;
+    margin-left: 0;
+    padding-top: 10px;
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: linear-gradient(90deg, #E9E4F0 0%, #FAF7FF 47.48%), #EDEDED;
+    border-radius: 0 0 12px 12px;
+    z-index: 1000;
+    height: 48vh;
+    overflow-y: auto;
+    border-radius: 20px;
+  }
+
+  .navbar.active {
+    display: flex;
+  }
+
+  .navbar ul {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    gap: 8px;
+    margin-right: none;
+  }
+
+  .navbar li {
+    width: 100%;
+    text-align: center;
+  }
+
+  .navbar .link {
+    display: block;
+    padding: 8px 0;
+  }
+
+  .burgerMenu {
+    display: flex;
+  }
+
+  .burgerMenu div {
+    border-radius: 5px;
+  }
+
+  .burgerMenu.active div:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+    border-radius: 5px;
+  }
+
+  .burgerMenu.active div:nth-child(2) {
+    opacity: 0;
+    border-radius: 5px;
+  }
+
+  .burgerMenu.active div:nth-child(3) {
+    transform: rotate(-45deg) translate(6.5px, -6.5px);
+    border-radius: 5px;
   }
 }
 
-@media (width<=640px) {
+@media (max-width: 991px) {
   .sidebar {
-    display: none;
+    width: 250px;
+    padding: 80px 30px 0;
   }
 }
 
@@ -66,13 +201,13 @@ body {
   position: relative;
 }
 
-@media (width<=991px) {
+@media (max-width: 991px) {
   .mainContent {
     padding: 35px 30px 20px;
   }
 }
 
-@media (width<=640px) {
+@media (max-width: 640px) {
   .mainContent {
     padding: 30px 20px 15px;
   }
@@ -91,13 +226,13 @@ body {
   color: #000;
 }
 
-@media (width<=991px) {
+@media (max-width: 991px) {
   .welcome {
     font-size: 32px;
   }
 }
 
-@media (width<=640px) {
+@media (max-width: 640px) {
   .welcome {
     font-size: 28px;
   }
@@ -117,7 +252,7 @@ body {
   display: flex;
 }
 
-@media (width<=640px) {
+@media (max-width: 640px) {
   .alerts {
     flex-direction: column;
   }
@@ -135,7 +270,7 @@ body {
   box-shadow: 0 1px 3px #0000000f;
 }
 
-@media (width<=640px) {
+@media (max-width: 640px) {
   .alertCard {
     width: 100%;
   }
@@ -177,14 +312,14 @@ body {
   display: flex;
 }
 
-@media (width<=991px) {
+@media (max-width: 991px) {
   .locationStats {
     flex-wrap: wrap;
     gap: 10px;
   }
 }
 
-@media (width<=640px) {
+@media (max-width: 640px) {
   .locationStats {
     flex-direction: column;
   }
@@ -198,13 +333,13 @@ body {
   box-shadow: 0 1px 3px #0000000f;
 }
 
-@media (width<=991px) {
+@media (max-width: 991px) {
   .statCard {
     width: calc(50% - 5px);
   }
 }
 
-@media (width<=640px) {
+@media (max-width: 640px) {
   .statCard {
     width: 100%;
   }
@@ -226,7 +361,7 @@ body {
   display: flex;
 }
 
-@media (width<=991px) {
+@media (max-width: 991px) {
   .dashboardContent {
     flex-direction: column;
   }
@@ -240,7 +375,7 @@ body {
   box-shadow: 0 1px 3px #0000000f;
 }
 
-@media (width<=991px) {
+@media (max-width: 991px) {
   .ratingsSection {
     width: 100%;
   }
@@ -278,7 +413,7 @@ body {
   margin-bottom: 15px; /* Add margin to separate from ActionButtons */
 }
 
-@media (width<=991px) {
+@media (max-width: 991px) {
   .newGames {
     width: 100%;
   }
@@ -297,7 +432,7 @@ body {
   margin-top: 15px; /* Ensure margin to separate from previous section */
 }
 
-@media (width<=640px) {
+@media (max-width: 640px) {
   .actionButtons {
     flex-direction: column;
   }
@@ -322,7 +457,7 @@ body {
   display: flex;
 }
 
-@media (width<=640px) {
+@media (max-width: 640px) {
   .actionButtons {
     flex-direction: column;
   }
@@ -344,7 +479,7 @@ body {
   font-weight: medium;
 }
 
-@media (width<=640px) {
+@media (max-width: 640px) {
   .actionBtnaddBtn {
     width: 100%;
   }
@@ -365,7 +500,7 @@ body {
   display: flex;
 }
 
-@media (width<=640px) {
+@media (max-width: 640px) {
   .actionBtnmanageBtn {
     width: 100%;
   }
