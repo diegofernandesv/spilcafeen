@@ -22,26 +22,27 @@ const SignUp = () => {
 
   const functAuthentication = async (e) => {
     e.preventDefault();
-    try {
-      if (name === "" || password === "" || confirmPassword === "") {
-        setError("Please fill in all required fields");
-        return;
-      }
-      if (password !== confirmPassword) {
-        setError("Password validation failed");
-        return;
-      }
-      if (!emailRegex.test(email)) {
-        setError("Invalid email format");
-        return;
-      }
+    setError("");
+    if (name === "" || password === "" || confirmPassword === "") {
+      setError("Please fill in all required fields");
+      return;
+    }
+    if (password !== confirmPassword) {
+      setError("Password validation failed");
+      return;
+    }
+    if (!emailRegex.test(email)) {
+      setError("Invalid email format");
+      return;
+    }
 
-      setLoading(true);
-      const nameRegister = await createUserWithEmailAndPassword(auth, email, password);
-      await setDoc(doc(db, "users", nameRegister.user.uid), {
+    setLoading(true);
+    try {
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      await setDoc(doc(db, "users", userCredential.user.uid), {
         name: name,
         email: email,
-        uid: nameRegister.user.uid,
+        uid: userCredential.user.uid,
         creationDate: new Date(),
         provider: "email",
       });
@@ -49,24 +50,22 @@ const SignUp = () => {
       setEmail("");
       setPassword("");
       setConfirmPassword("");
-      setLoading(false);
       navigation("/");
     } catch (error) {
-      setLoading(false);
       console.log(error);
-      setError(error.message);
-
-      if (error.message === "Firebase: Error (auth/email-already-in-use).") {
+      if (error.code === "auth/email-already-in-use") {
         setError("The email is already in use");
-      } else if (error.message === "Firebase: Error (auth/network-request-failed).") {
+      } else if (error.code === "auth/network-request-failed") {
         setError("Oops. Check your internet connection");
-      } else if (error.message === "Firebase: Password should be at least 6 characters (auth/weak-password).") {
+      } else if (error.code === "auth/weak-password") {
         setError("Your password must be at least 6 characters long");
-      } else if (error.message === "Firebase: Error (auth/invalid-email).") {
+      } else if (error.code === "auth/invalid-email") {
         setError("Invalid email");
-      } else if (error.message === "Firebase: Error (auth/configuration-not-found).") {
-        setError("Firebase configuration not found. Please check your Firebase setup.");
+      } else {
+        setError(error.message);
       }
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -125,8 +124,8 @@ const SignUp = () => {
                 {confirmPasswordVisible ? <FaEyeSlash /> : <FaEye />}
               </span>
             </div>
-            <button className={styles.authButton} type="submit">
-              Create Account
+            <button className={styles.authButton} type="submit" disabled={loading}>
+              {loading ? "Creating Account..." : "Create Account"}
             </button>
           </form>
           <p className={styles.authLink}>

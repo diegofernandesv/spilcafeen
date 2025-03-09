@@ -71,7 +71,9 @@ function Sidebar() {
                 ></path>
               </svg>
             </div>
-            <span>Dashboard</span>
+            <span>
+              <Link to="/dashboard">Dashboard</Link>
+            </span>
           </a>
           <a className={styles.navItem}>
             <div>
@@ -92,7 +94,9 @@ function Sidebar() {
                 ></path>
               </svg>
             </div>
-            <span>Inventory</span>
+            <span>
+              <Link to="/inventory">Inventory</Link>
+            </span>
           </a>
           <a className={styles.navItem}>
             <div>

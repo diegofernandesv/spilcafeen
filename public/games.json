@@ -1,30 +1,21 @@
-import React, { useEffect, useState } from "react";
-import styles from "./Dashboard.module.css";
-
-const gamesData = [
+[
   {
-    name: "Agricola: All Creatures Big and Small",
-    locations: { Vestergade: "F5" },
-    language: "English",
-    genre: "Strategy",
-    players: "2",
-    difficulty: "Medium",
+    "name": "Agricola: All Creatures Big and Small",
+    "locations": {
+      "Vestergade": "F5"
+    },
+    "language": "English",
+    "genre": "Strategy",
+    "players": "2",
+    "difficulty": "Medium"
   },
   {
-    name: "Anomia",
-    locations: {Frederiskberg: "A1"},
-    language: "English",
-    genre: "Party",
-    players: "3-6",
-    difficulty: "Easy",
-  },
-  {
-    name: "Battle Sheep",
-    locations: { Vestergade: "D3", Aalborg: "J5" },
-    language: "English",
-    genre: "Strategy",
-    players: "2-4",
-    difficulty: "Easy",
+    "name": "Anomia",
+    "locations": {},
+    "language": "English",
+    "genre": "Party",
+    "players": "3-6",
+    "difficulty": "Easy"
   },
   {
     "name": "Battle Sheep",
@@ -32,7 +23,7 @@ const gamesData = [
       "Vestergade": "D3",
       "Aalborg": "J5"
     },
-    "language": "English",
+    "language": "Language Independent",
     "genre": "Abstract Strategy",
     "players": "2-4",
     "difficulty": "Easy"
@@ -54,7 +45,7 @@ const gamesData = [
       "Vestergade": "D2"
     },
     "language": "English",
-    "genre": "For kids",
+    "genre": "Children's Game",
     "players": "2-4",
     "difficulty": "Easy"
   },
@@ -96,7 +87,7 @@ const gamesData = [
   {
     "name": "Carcassonne",
     "locations": {},
-    "language": "English",
+    "language": "Language Independent",
     "genre": "Tile-Placement",
     "players": "2-5",
     "difficulty": "Medium"
@@ -106,7 +97,7 @@ const gamesData = [
     "locations": {
       "Vestergade": "TOP"
     },
-    "language": "English",
+    "language": "Language Independent",
     "genre": "Tile-Placement",
     "players": "2-4",
     "difficulty": "Medium"
@@ -114,7 +105,7 @@ const gamesData = [
   {
     "name": "Catan",
     "locations": {},
-    "language": "English",
+    "language": "Language Independent",
     "genre": "Strategy",
     "players": "3-4",
     "difficulty": "Medium"
@@ -158,7 +149,7 @@ const gamesData = [
       "Vestergade": "D5"
     },
     "language": "Danish",
-    "genre": "For kids",
+    "genre": "Children's Game",
     "players": "2-4",
     "difficulty": "Easy"
   },
@@ -510,7 +501,7 @@ const gamesData = [
       "Aalborg": "B3"
     },
     "language": "English",
-    "genre": "Fantasy",
+    "genre": "Card Game",
     "players": "2-6",
     "difficulty": "Easy"
   },
@@ -653,49 +644,9 @@ const gamesData = [
       "Vestergade": "H6"
     },
     "language": "Danish",
-    "genre": "For kids",
+    "genre": "Children's Game",
     "players": "2-6",
     "difficulty": "Medium"
   }
-];
+]
 
-function StatsSection() {
-  const [games, setGames] = useState([]);
-
-  useEffect(() => {
-    setGames(gamesData);
-  }, []);
-
-  const getGamesCountByLocation = (location) => {
-    return games.filter((game) => game.locations[location]).length;
-  };
-
-  return (
-    <section>
-      <div className={styles.totalGames}>
-        <span>Total games in the system :</span>
-        <span className={styles.gamesCount}>{games.length} games</span>
-      </div>
-      <div className={styles.locationStats}>
-        <div className={styles.statCard}>
-          <div className={styles.location}>Vestergade :</div>
-          <div className={styles.count}>{getGamesCountByLocation("Vestergade")} games</div>
-        </div>
-        <div className={styles.statCard}>
-          <div className={styles.location}>Fredensgade :</div>
-          <div className={styles.count}>{getGamesCountByLocation("Fredensgade")} games</div>
-        </div>
-        <div className={styles.statCard}>
-          <div className={styles.location}>Aalborg :</div>
-          <div className={styles.count}>{getGamesCountByLocation("Aalborg")} games</div>
-        </div>
-        <div className={styles.statCard}>
-          <div className={styles.location}>Kolding :</div>
-          <div className={styles.count}>{getGamesCountByLocation("Kolding")} games</div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-export default StatsSection;

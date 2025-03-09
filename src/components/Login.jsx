@@ -1,12 +1,9 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-
 import { FaEye, FaEyeSlash } from "react-icons/fa"; // Ensure this import statement
 import styles from "./Auth.module.css"; // Ensure this import statement
-
-import { auth, db } from "../firebase"; // Ensure this path is correct
-import { getAuth, signInWithEmailAndPassword, signInWithPopup, FacebookAuthProvider } from "firebase/auth";
-import { doc, getDoc } from "firebase/firestore";
+import { auth } from "../firebase"; // Ensure this path is correct
+import { signInWithEmailAndPassword } from "firebase/auth";
 
 const Login = () => {
   const navigation = useNavigate();
@@ -15,24 +12,6 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
-
-  const facebookClick = async () => {
-    try {
-      const result = await signInWithPopup(auth, new FacebookAuthProvider());
-      const userDoc = await getDoc(doc(db, "users", result.user.uid));
-      if (userDoc.exists()) {
-        navigation("/");
-      } else {
-        setError("User not registered. Please sign up first.");
-        await auth.signOut();
-      }
-    } catch (error) {
-      if (error.message === "Firebase: Error (auth/popup-blocked).") {
-        setError("Your browser has blocked the login popup. Please ensure your browser is not blocking popups.");
-      }
-      console.log("Error logging in with Facebook: " + error.message);
-    }
-  };
 
   const functAuthentication = async (e) => {
     e.preventDefault();
@@ -102,11 +81,6 @@ const Login = () => {
               Login
             </button>
           </form>
-          <div className={styles.socialLogin}>
-            <button className={styles.btn2} onClick={facebookClick}>
-              Login with Facebook
-            </button>
-          </div>
           <p>
             Don't have an account? <Link to="/signup">Sign Up</Link>
           </p>

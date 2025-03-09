@@ -1,0 +1,156 @@
+.inventoryContainer {
+  background-color: #f0f2f5; /* Light background color */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  display: flex; /* Use flexbox to align content next to the sidebar */
+}
+
+.sidebar {
+  margin-left: 0; /* Remove left margin */
+}
+
+.content {
+  flex: 1; /* Take up remaining space next to the sidebar */
+  margin-left: 20px; /* Add space between sidebar and content */
+  margin-top: 80px;
+}
+
+.content h1 {
+  font-size: 32px;
+}
+
+.filters {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap; /* Ensure filters wrap on smaller screens */
+  background-color: #fff; /* White background for filters */
+  padding: 15px;
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.filterItem {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.filterIcon {
+  color: #ed1433; /* Red color for the filter icons */
+}
+
+.filters input,
+.filters select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  flex: 1; /* Make the search bar flexible */
+  background-color: #fff; /* White background for inputs */
+}
+
+.filters select {
+  color: #fff;
+  cursor: pointer;
+  background-color: #ed1433;
+  border: none;
+  border-radius: 8px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 10px;
+  font-size: 16px;
+  display: flex;
+  font-weight: 500;
+}
+
+.filters select option {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.gamesList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.gameCard {
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px; /* Rounded corners */
+  width: calc(33.333% - 20px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  transition: transform 0.2s; /* Smooth transition for hover effect */
+  position: relative; /* Position relative for the edit icon */
+}
+
+.gameCard:hover {
+  transform: translateY(-5px); /* Slight lift on hover */
+}
+
+.gameCard h2 {
+  margin-top: 0;
+  color: #333; /* Darker text color */
+  font-size: 24px; /* Set font size to 24px */
+  font-weight: bold; /* Make the text bold */
+}
+
+.gameCard p {
+  margin: 5px 0;
+  color: #666; /* Lighter text color */
+}
+
+.infoIcon {
+  margin-right: 5px;
+  color: #ed1433; /* Red color for the information icons */
+}
+
+.editIcon {
+  cursor: pointer;
+  color: #a0182d; /* Red color for the edit icon */
+  position: absolute; /* Position absolute for the edit icon */
+  top: 10px; /* Position at the top */
+  right: 10px; /* Position at the right */
+}
+
+.gameCard input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.gameCard button {
+  padding: 10px 20px;
+  background-color: #ed1433;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.gameCard button:hover {
+  background-color: #ed1433;
+}
+
+a {
+  text-decoration: none; /* Remove text decoration from links */
+  color: #fff; /* Make links white */
+}
+
+a:active {
+  color: #000; /* Make links black when active */
+}
+
+@media (max-width: 768px) {
+  .gameCard {
+    width: 95%; /* Make the card take full width on small screens */
+  }
+  .filters{
+    width: 95%;
+  }
+}

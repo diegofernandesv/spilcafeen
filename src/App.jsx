@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-d
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
 import Dashboard from "./views/Dashboard";
+import Inventory from "./views/Inventory";
 import PrivateRoute from "./components/PrivateRoute";
 
 function App() {
@@ -16,6 +17,14 @@ function App() {
           element={
             <PrivateRoute>
               <Dashboard />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/inventory"
+          element={
+            <PrivateRoute>
+              <Inventory />
             </PrivateRoute>
           }
         />
