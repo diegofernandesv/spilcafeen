@@ -28,7 +28,7 @@ function App() {
             </PrivateRoute>
           }
         />
-        <Route path="*" element={<Navigate to="/dashboard" />} /> {/* Default route */}
+        <Route path="*" element={<Navigate to="/login" />} /> {/* Default route */}
       </Routes>
     </Router>
   );
