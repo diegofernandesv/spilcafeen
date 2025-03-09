@@ -1,0 +1,44 @@
+.sidebar {
+  background-color: #ed1433;
+  border-radius: 0 50px 0 0;
+  flex-direction: column;
+  width: 311px;
+  padding: 100px 56px 0;
+  display: flex;
+  transition: transform 0.3s ease-in-out;
+  transform: translateX(0); /* Ensure sidebar is visible on larger screens */
+}
+
+.logo {
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 40px;
+  display: flex;
+}
+
+.logoText {
+  color: #fff;
+  font-family: Rubik One, sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.navLinks {
+  flex-direction: column;
+  gap: 12px;
+  display: flex;
+}
+
+.navItem {
+  color: #fff;
+  cursor: pointer;
+  align-items: center;
+  gap: 6px;
+  font-size: 20px;
+  display: flex;
+  text-decoration: none; /* Ensure links have no underline */
+}
+
+.navItem:hover {
+  text-decoration: underline; /* Add underline on hover */
+}

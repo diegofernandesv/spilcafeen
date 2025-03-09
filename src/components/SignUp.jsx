@@ -9,30 +9,38 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
 
 const SignUp = () => {
-  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/; // Normal email format
+  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [confirmPasswordVisible, setConfirmPasswordVisible] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  const navigation = useNavigate();
+  const navigate = useNavigate();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  const functAuthentication = async (e) => {
+  const handleSignUp = async (e) => {
     e.preventDefault();
     setError("");
-    if (name === "" || password === "" || confirmPassword === "") {
+    
+    if (name === "" || email === "" || password === "" || confirmPassword === "") {
       setError("Please fill in all required fields");
       return;
     }
+
     if (password !== confirmPassword) {
-      setError("Password validation failed");
+      setError("Passwords do not match");
       return;
     }
+
     if (!emailRegex.test(email)) {
       setError("Invalid email format");
+      return;
+    }
+
+    if (password.length < 8) {
+      setError("Password must be at least 8 characters long");
       return;
     }
 
@@ -50,7 +58,7 @@ const SignUp = () => {
       setEmail("");
       setPassword("");
       setConfirmPassword("");
-      navigation("/");
+      navigate("/dashboard");
     } catch (error) {
       console.log(error);
       if (error.code === "auth/email-already-in-use") {
@@ -75,7 +83,7 @@ const SignUp = () => {
         <h1>Sign up to Spilcafeen</h1>
         <div className={styles.authForm}>
           <h2>Create Account</h2>
-          <form onSubmit={functAuthentication} onChange={() => setError("")}>
+          <form onSubmit={handleSignUp} onChange={() => setError("")}>
             <input
               value={name}
               onChange={(e) => setName(e.target.value)}
