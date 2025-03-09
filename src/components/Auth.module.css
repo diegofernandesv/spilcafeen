@@ -87,6 +87,8 @@ h2 {
   transition: var(--transition);
   height: 30px;
   outline: none;
+  margin-top: 8px;
+  margin-bottom: 8px;
 }
 
 .authInput:focus {
@@ -339,3 +341,303 @@ input:checked + .slider:before {
     margin-top: 12px;
   }
 }
+
+/* Login Component Styles */
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: var(--background);
+    padding: 16px;
+    max-height: 100vh;
+    overflow-y: auto;
+  }
+  
+  .loginBox {
+    background-color: var(--card-bg);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    box-shadow: var(--shadow);
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+  }
+  
+  .loginBox h1 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+  }
+  
+  .loginBox h2 {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 24px;
+    color: var(--text-secondary);
+  }
+  
+  .loginBox form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .inputField {
+    width: 100%;
+    padding: 16px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    background-color: var(--input-bg);
+    font-size: 15px;
+    transition: var(--transition);
+    height: 50px;
+    outline: none;
+  }
+  
+  .inputField:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(237, 20, 51, 0.1);
+  }
+  
+  .inputWrapper {
+    position: relative;
+    width: 100%;
+  }
+  
+  .passwordInput {
+    width: 100%;
+    padding: 16px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    background-color: var(--input-bg);
+    font-size: 15px;
+    transition: var(--transition);
+    height: 50px;
+    outline: none;
+  }
+  
+  .passwordInput:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(237, 20, 51, 0.1);
+  }
+  
+  .eyeIcon {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: var(--text-secondary);
+  }
+  
+  .options {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    font-size: 14px;
+  }
+  
+  .options p {
+    color: var(--text-secondary);
+  }
+  
+  .options a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  .options a:hover {
+    text-decoration: underline;
+  }
+  
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 36px;
+    height: 20px;
+  }
+  
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .sliderRound {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--border-color);
+    transition: var(--transition);
+    border-radius: 34px;
+  }
+  
+  .sliderRound:before {
+    position: absolute;
+    content: "";
+    height: 14px;
+    width: 14px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: var(--transition);
+    border-radius: 50%;
+  }
+  
+  input:checked + .sliderRound {
+    background-color: var(--primary-color);
+  }
+  
+  input:focus + .sliderRound {
+    box-shadow: 0 0 0 3px rgba(237, 20, 51, 0.1);
+  }
+  
+  input:checked + .sliderRound:before {
+    transform: translateX(16px);
+  }
+  
+  .btn1,
+  .btn2 {
+    width: 100%;
+    height: 50px;
+    padding: 14px;
+    border: none;
+    border-radius: var(--radius-md);
+    background-color: var(--primary-color);
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: var(--transition);
+  }
+  
+  .btn1:hover,
+  .btn2:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-1px);
+  }
+  
+  .btn1:active,
+  .btn2:active {
+    transform: translateY(0);
+  }
+  
+  .socialLogin {
+    margin-bottom: 20px;
+  }
+  
+  .btn2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+  }
+  
+  .loginBox p {
+    font-size: 14px;
+    color: var(--text-secondary);
+  }
+  
+  .loginBox p a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  .loginBox p a:hover {
+    text-decoration: underline;
+  }
+  
+  .loading {
+    margin-top: 16px;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 14px;
+  }
+  
+  .error {
+    margin-top: 16px;
+    color: var(--primary-color);
+    font-size: 14px;
+    padding: 8px;
+    border-radius: var(--radius-md);
+    background-color: rgba(237, 20, 51, 0.08);
+  }
+  
+  @media (max-width: 768px) {
+    .loginBox {
+      padding: 28px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .container {
+      padding: 12px;
+    }
+    
+    .loginBox {
+      padding: 20px;
+    }
+  
+    .btn1, 
+    .btn2,
+    .inputField,
+    .passwordInput {
+      height: 48px;
+      padding: 12px;
+    }
+    
+    .loginBox h1 {
+      font-size: 22px;
+    }
+    
+    .loginBox h2 {
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+  }
+  
+  /* Fix for very small screens */
+  @media (max-height: 720px) {
+    .loginBox {
+      padding: 20px;
+      margin: 10px 0;
+    }
+    
+    .loginBox form {
+      gap: 12px;
+    }
+    
+    .inputField, 
+    .passwordInput, 
+    .btn1, 
+    .btn2 {
+      height: 46px;
+    }
+    
+    .loginBox h1 {
+      font-size: 20px;
+      margin-bottom: 4px;
+    }
+    
+    .loginBox h2 {
+      font-size: 14px;
+      margin-bottom: 16px;
+    }
+    
+    .socialLogin {
+      margin-bottom: 12px;
+    }
+  }

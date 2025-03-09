@@ -4,7 +4,7 @@ import styles from "./Dashboard.module.css";
 function Header() {
   return (
     <header className={styles.header}>
-      <h2 className={styles.welcome}>Welcome back, Diego</h2>
+      <h2 className={styles.welcome}>Dashboard</h2>
       <div className={styles.time}>
         <div>
           <svg

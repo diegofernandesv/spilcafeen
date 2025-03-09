@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import styles from "./Dashboard.module.css";
 
 function Sidebar() {
@@ -227,7 +228,9 @@ function Sidebar() {
                 ></path>
               </svg>
             </div>
-            <span>Account</span>
+            <span>
+              <Link to="/login">Account</Link>
+            </span>
           </a>
         </nav>
       </aside>

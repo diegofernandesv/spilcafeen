@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+
 import { FaEye, FaEyeSlash } from "react-icons/fa"; // Ensure this import statement
 import styles from "./Auth.module.css"; // Ensure this import statement
 
@@ -28,8 +29,6 @@ const Login = () => {
     } catch (error) {
       if (error.message === "Firebase: Error (auth/popup-blocked).") {
         setError("Your browser has blocked the login popup. Please ensure your browser is not blocking popups.");
-      } else if (error.message === "Firebase: Error (auth/configuration-not-found).") {
-        setError("Firebase configuration not found. Please check your Firebase setup.");
       }
       console.log("Error logging in with Facebook: " + error.message);
     }
@@ -47,11 +46,7 @@ const Login = () => {
       setEmail("");
       setPassword("");
       setLoading(false);
-      if (password === "Admin123") {
-        navigation("/admin-dashboard");
-      } else {
-        navigation("/");
-      }
+      navigation("/");
       console.log(user.user.email);
     } catch (error) {
       setLoading(false);
@@ -59,8 +54,6 @@ const Login = () => {
         setError("User does not exist. Invalid email or password");
       } else if (error.message === "Firebase: Error (auth/network-request-failed).") {
         setError("Oops. Check your internet connection");
-      } else if (error.message === "Firebase: Error (auth/configuration-not-found).") {
-        setError("Firebase configuration not found. Please check your Firebase setup.");
       }
       console.log(error.message);
     }
