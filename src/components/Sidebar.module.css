@@ -3,6 +3,7 @@
   border-radius: 0 50px 0 0;
   flex-direction: column;
   width: 311px;
+  height: 100%;
   padding: 100px 56px 0;
   display: flex;
   transition: transform 0.3s ease-in-out;

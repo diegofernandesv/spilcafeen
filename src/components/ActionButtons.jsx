@@ -1,10 +1,66 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./Dashboard.module.css";
+import { getDatabase, ref, push, update } from "firebase/database";
 
 function ActionButtons() {
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [newGame, setNewGame] = useState({
+    name: "",
+    location: "",
+    language: "",
+    genre: "",
+    playerCount: "",
+    difficulty: "",
+    shelf: ""
+  });
+
+  const handleDialogOpen = () => {
+    setIsDialogOpen(true);
+  };
+
+  const handleDialogClose = () => {
+    setIsDialogOpen(false);
+    setNewGame({
+      name: "",
+      location: "",
+      language: "",
+      genre: "",
+      playerCount: "",
+      difficulty: "",
+      shelf: ""
+    });
+  };
+
+  const handleAddGame = async () => {
+    if (!newGame.name || !newGame.location || !newGame.language || !newGame.genre || !newGame.playerCount || !newGame.difficulty || !newGame.shelf) {
+      alert("Please fill in all fields.");
+      return;
+    }
+
+    try {
+      const db = getDatabase();
+      const gamesRef = ref(db, "boardGames");
+      const newGameRef = push(gamesRef);
+      await update(newGameRef, {
+        name: newGame.name,
+        location: newGame.location,
+        language: newGame.language,
+        genre: newGame.genre,
+        playerCount: newGame.playerCount,
+        difficulty: newGame.difficulty,
+        shelf: newGame.shelf,
+        createdAt: Date.now()
+      });
+      handleDialogClose();
+    } catch (error) {
+      console.error("Error adding game:", error);
+      alert("Error adding game. Please try again.");
+    }
+  };
+
   return (
     <div className={styles.actionButtons}>
-      <button className={styles.actionBtnaddBtn}>
+      <button className={styles.actionBtnaddBtn} onClick={handleDialogOpen}>
         <div>
           <svg
             id="5:98"
@@ -58,6 +114,69 @@ function ActionButtons() {
         </div>
         <span>Manage inventory</span>
       </button>
+
+      {isDialogOpen && (
+        <div className={styles.dialogOverlay}>
+          <div className={styles.dialog}>
+            <div className={styles.dialogTitle}>Add New Game</div>
+            <div className={styles.dialogContent}>
+              <input
+                type="text"
+                placeholder="Game Name"
+                value={newGame.name}
+                onChange={(e) => setNewGame({ ...newGame, name: e.target.value })}
+                className={styles.dialogInput}
+              />
+              <input
+                type="text"
+                placeholder="Location"
+                value={newGame.location}
+                onChange={(e) => setNewGame({ ...newGame, location: e.target.value })}
+                className={styles.dialogInput}
+              />
+              <input
+                type="text"
+                placeholder="Language"
+                value={newGame.language}
+                onChange={(e) => setNewGame({ ...newGame, language: e.target.value })}
+                className={styles.dialogInput}
+              />
+              <input
+                type="text"
+                placeholder="Genre"
+                value={newGame.genre}
+                onChange={(e) => setNewGame({ ...newGame, genre: e.target.value })}
+                className={styles.dialogInput}
+              />
+              <input
+                type="text"
+                placeholder="Player Count"
+                value={newGame.playerCount}
+                onChange={(e) => setNewGame({ ...newGame, playerCount: e.target.value })}
+                className={styles.dialogInput}
+              />
+              <input
+                type="text"
+                placeholder="Difficulty"
+                value={newGame.difficulty}
+                onChange={(e) => setNewGame({ ...newGame, difficulty: e.target.value })}
+                className={styles.dialogInput}
+              />
+              <input
+                type="text"
+                placeholder="Shelf"
+                value={newGame.shelf}
+                onChange={(e) => setNewGame({ ...newGame, shelf: e.target.value })}
+                className={styles.dialogInput}
+              />
+            </div>
+            <div className={styles.dialogActions}>
+              <button onClick={handleDialogClose} className={styles.dialogButton}>Cancel</button>
+              <button onClick={handleAddGame} className={styles.dialogButton}>Add</button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

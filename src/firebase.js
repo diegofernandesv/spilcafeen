@@ -1,6 +1,7 @@
-import { initializeApp } from "firebase/app";
+import { initializeApp, getApps, getApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
+import { getDatabase } from "firebase/database";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCm-Fo2aoVy3G8DbSBmTSTP4EdS_BVd-o0",
@@ -9,11 +10,13 @@ const firebaseConfig = {
   storageBucket: "spilcafeen-e8a10.appspot.com",
   messagingSenderId: "969112916966",
   appId: "1:969112916966:web:ffd4e2adcb0986fa50fc27",
-  measurementId: "G-2TKLL1J383"
+  measurementId: "G-2TKLL1J383",
+  databaseURL: "https://spilcafeen-e8a10-default-rtdb.europe-west1.firebasedatabase.app"
 };
 
-const app = initializeApp(firebaseConfig);
+const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
 const auth = getAuth(app);
 const db = getFirestore(app);
+const database = getDatabase(app);
 
-export { auth, db };
+export { auth, db, database };

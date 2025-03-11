@@ -1,0 +1,27 @@
+.gameItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}
+
+.deleteButton {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  transition: transform 0.2s ease;
+}
+
+.deleteButton:hover svg {
+  stroke: #ff4d4f; /* brighter red */
+  transform: scale(1.1);
+}
+
+.deleteButton svg {
+  width: 24px;
+  height: 24px;
+}

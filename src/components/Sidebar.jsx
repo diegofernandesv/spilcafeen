@@ -138,7 +138,9 @@ function Sidebar() {
                 ></path>
               </svg>
             </div>
-            <span>Calendar</span>
+            <span>
+              <Link to="/calendar">Calendar</Link>
+            </span>
           </a>
           <a className={styles.navItem}>
             <div>
