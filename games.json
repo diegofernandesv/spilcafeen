@@ -1,652 +1,572 @@
-[
-  {
-    "name": "Agricola: All Creatures Big and Small",
-    "locations": {
-      "Vestergade": "F5"
+{
+  "boardGames": {
+    "game1": {
+      "name": "Agricola: All Creatures Big and Small",
+      "location": "Vestergade",
+      "shelf": "F5",
+      "language": "English",
+      "genre": "Strategy",
+      "playerCount": "2",
+      "difficulty": "Medium"
     },
-    "language": "English",
-    "genre": "Strategy",
-    "players": "2",
-    "difficulty": "Medium"
-  },
-  {
-    "name": "Anomia",
-    "locations": {},
-    "language": "English",
-    "genre": "Party",
-    "players": "3-6",
-    "difficulty": "Easy"
-  },
-  {
-    "name": "Battle Sheep",
-    "locations": {
-      "Vestergade": "D3",
-      "Aalborg": "J5"
+    "game2": {
+      "name": "Anomia",
+      "location": "",
+      "shelf": "",
+      "language": "English",
+      "genre": "Party",
+      "playerCount": "3-6",
+      "difficulty": "Easy"
     },
-    "language": "Language Independent",
-    "genre": "Abstract Strategy",
-    "players": "2-4",
-    "difficulty": "Easy"
-  },
-  {
-    "name": "Betrayal at the House on the Hill - 3rd ed.",
-    "locations": {
-      "Vestergade": "F5",
-      "Aalborg": "D1"
+    "game3": {
+      "name": "Battle Sheep",
+      "location": "Vestergade, Aalborg",
+      "shelf": "D3, J5",
+      "language": "Language Independent",
+      "genre": "Abstract Strategy",
+      "playerCount": "2-4",
+      "difficulty": "Easy"
     },
-    "language": "English",
-    "genre": "Horror",
-    "players": "3-6",
-    "difficulty": "Medium"
-  },
-  {
-    "name": "Candy Monsters",
-    "locations": {
-      "Vestergade": "D2"
+    "game4": {
+      "name": "Betrayal at the House on the Hill - 3rd ed.",
+      "location": "Vestergade, Aalborg",
+      "shelf": "F5, D1",
+      "language": "English",
+      "genre": "Horror",
+      "playerCount": "3-6",
+      "difficulty": "Medium"
     },
-    "language": "English",
-    "genre": "Children's Game",
-    "players": "2-4",
-    "difficulty": "Easy"
-  },
-  {
-    "name": "Cards Against Humanity BLÅ",
-    "locations": {
-      "Vestergade": "F4",
-      "Aalborg": "J3",
-      "Kolding": "E3"
+    "game5": {
+      "name": "Candy Monsters",
+      "location": "Vestergade",
+      "shelf": "D2",
+      "language": "English",
+      "genre": "Children's Game",
+      "playerCount": "2-4",
+      "difficulty": "Easy"
     },
-    "language": "Danish",
-    "genre": "Party",
-    "players": "4-20",
-    "difficulty": "Easy"
-  },
-  {
-    "name": "Cards Against Humanity GRØN",
-    "locations": {
-      "Vestergade": "F4",
-      "Aalborg": "J3"
+    "game6": {
+      "name": "Cards Against Humanity BLÅ",
+      "location": "Vestergade, Aalborg, Kolding",
+      "shelf": "F4, J3, E3",
+      "language": "Danish",
+      "genre": "Party",
+      "playerCount": "4-20",
+      "difficulty": "Easy"
     },
-    "language": "Danish",
-    "genre": "Party",
-    "players": "4-20",
-    "difficulty": "Easy"
-  },
-  {
-    "name": "Cards Against Humanity RØD",
-    "locations": {
-      "Vestergade": "F4",
-      "Aalborg": "J3",
-      "Kolding": "E3"
+    "game7": {
+      "name": "Cards Against Humanity GRØN",
+      "location": "Vestergade, Aalborg",
+      "shelf": "F4, J3",
+      "language": "Danish",
+      "genre": "Party",
+      "playerCount": "4-20",
+      "difficulty": "Easy"
     },
-    "language": "Danish",
-    "genre": "Party",
-    "players": "4-20",
-    "difficulty": "Easy"
-  },
-  {
-    "name": "Carcassonne",
-    "locations": {},
-    "language": "Language Independent",
-    "genre": "Tile-Placement",
-    "players": "2-5",
-    "difficulty": "Medium"
-  },
-  {
-    "name": "Carcassonne The City",
-    "locations": {
-      "Vestergade": "TOP"
+    "game8": {
+      "name": "Cards Against Humanity RØD",
+      "location": "Vestergade, Aalborg, Kolding",
+      "shelf": "F4, J3, E3",
+      "language": "Danish",
+      "genre": "Party",
+      "playerCount": "4-20",
+      "difficulty": "Easy"
     },
-    "language": "Language Independent",
-    "genre": "Tile-Placement",
-    "players": "2-4",
-    "difficulty": "Medium"
-  },
-  {
-    "name": "Catan",
-    "locations": {},
-    "language": "Language Independent",
-    "genre": "Strategy",
-    "players": "3-4",
-    "difficulty": "Medium"
-  },
-  {
-    "name": "Claim 2",
-    "locations": {
-      "Vestergade": "SMÅ"
+    "game9": {
+      "name": "Carcassonne",
+      "location": "",
+      "shelf": "",
+      "language": "Language Independent",
+      "genre": "Tile-Placement",
+      "playerCount": "2-5",
+      "difficulty": "Medium"
     },
-    "language": "English",
-    "genre": "Card Game",
-    "players": "2",
-    "difficulty": "Easy"
-  },
-  {
-    "name": "Danmark Spillet",
-    "locations": {
-      "Vestergade": "D5",
-      "Aalborg": "H2",
-      "Kolding": "F5"
+    "game10": {
+      "name": "Carcassonne The City",
+      "location": "Vestergade",
+      "shelf": "TOP",
+      "language": "Language Independent",
+      "genre": "Tile-Placement",
+      "playerCount": "2-4",
+      "difficulty": "Medium"
     },
-    "language": "Danish",
-    "genre": "Trivia",
-    "players": "2-6",
-    "difficulty": "Medium"
-  },
-  {
-    "name": "Det burde man jo vide!",
-    "locations": {
-      "Vestergade": "F4",
-      "Aalborg": "G3"
+    "game11": {
+      "name": "Catan",
+      "location": "",
+      "shelf": "",
+      "language": "Language Independent",
+      "genre": "Strategy",
+      "playerCount": "3-4",
+      "difficulty": "Medium"
     },
-    "language": "Danish",
-    "genre": "Trivia",
-    "players": "2-8",
-    "difficulty": "Easy"
-  },
-  {
-    "name": "Ducktales",
-    "locations": {
-      "Vestergade": "D5"
+    "game12": {
+      "name": "Claim 2",
+      "location": "Vestergade",
+      "shelf": "SMÅ",
+      "language": "English",
+      "genre": "Card Game",
+      "playerCount": "2",
+      "difficulty": "Easy"
     },
-    "language": "Danish",
-    "genre": "Children's Game",
-    "players": "2-4",
-    "difficulty": "Easy"
-  },
-  {
-    "name": "Game 1",
-    "locations": {
-      "Vestergade": "A1"
+    "game13": {
+      "name": "Danmark Spillet",
+      "location": "Vestergade, Aalborg, Kolding",
+      "shelf": "D5, H2, F5",
+      "language": "Danish",
+      "genre": "Trivia",
+      "playerCount": "2-6",
+      "difficulty": "Medium"
     },
-    "language": "Danish",
-    "genre": "Fantasy",
-    "players": "2-4",
-    "difficulty": "Easy"
-  },
-  {
-    "name": "Game 2",
-    "locations": {
-      "Fredensgade": "B2"
+    "game14": {
+      "name": "Det burde man jo vide!",
+      "location": "Vestergade, Aalborg",
+      "shelf": "F4, G3",
+      "language": "Danish",
+      "genre": "Trivia",
+      "playerCount": "2-8",
+      "difficulty": "Easy"
     },
-    "language": "English",
-    "genre": "Sci-Fi",
-    "players": "4+",
-    "difficulty": "Medium"
-  },
-  {
-    "name": "Game 3",
-    "locations": {
-      "Aalborg": "C3"
+    "game15": {
+      "name": "Ducktales",
+      "location": "Vestergade",
+      "shelf": "D5",
+      "language": "Danish",
+      "genre": "Children's Game",
+      "playerCount": "2-4",
+      "difficulty": "Easy"
     },
-    "language": "Danish",
-    "genre": "Horror",
-      "players": "2",
+    "game16": {
+      "name": "Game 1",
+      "location": "Vestergade",
+      "shelf": "A1",
+      "language": "Danish",
+      "genre": "Fantasy",
+      "playerCount": "2-4",
+      "difficulty": "Easy"
+    },
+    "game17": {
+      "name": "Game 2",
+      "location": "Fredensgade",
+      "shelf": "B2",
+      "language": "English",
+      "genre": "Sci-Fi",
+      "playerCount": "4+",
+      "difficulty": "Medium"
+    },
+    "game18": {
+      "name": "Game 3",
+      "location": "Aalborg",
+      "shelf": "C3",
+      "language": "Danish",
+      "genre": "Horror",
+      "playerCount": "2",
       "difficulty": "Hard"
-  },
-  {
-    "name": "Game 4",
-    "locations": {
-      "Kolding": "D4"
     },
-    "language": "English",
-    "genre": "Mystery",
-    "players": "4+",
-    "difficulty": "Medium"
-  },
-  {
-    "name": "Grissebasse",
-    "locations": {
-      "Vestergade": "D3"
+    "game19": {
+      "name": "Game 4",
+      "location": "Kolding",
+      "shelf": "D4",
+      "language": "English",
+      "genre": "Mystery",
+      "playerCount": "4+",
+      "difficulty": "Medium"
     },
-    "language": "Danish",
-    "genre": "Card Game",
-    "players": "2-6",
-    "difficulty": "Easy"
-  },
-  {
-    "name": "Horrified",
-    "locations": {
-      "Vestergade": "F2"
+    "game20": {
+      "name": "Grissebasse",
+      "location": "Vestergade",
+      "shelf": "D3",
+      "language": "Danish",
+      "genre": "Card Game",
+      "playerCount": "2-6",
+      "difficulty": "Easy"
     },
-    "language": "English",
-    "genre": "Cooperative",
-    "players": "1-5",
-    "difficulty": "Medium"
-  },
-  {
-    "name": "Hugo",
-    "locations": {
-      "Vestergade": "D5"
+    "game21": {
+      "name": "Horrified",
+      "location": "Vestergade",
+      "shelf": "F2",
+      "language": "English",
+      "genre": "Cooperative",
+      "playerCount": "1-5",
+      "difficulty": "Medium"
     },
-    "language": "Danish",
-    "genre": "Family",
-    "players": "2-8",
-    "difficulty": "Easy"
-  },
-  {
-    "name": "Brain Box - Once Upon A Time",
-    "locations": {
-      "Vestergade": "C6"
+    "game22": {
+      "name": "Hugo",
+      "location": "Vestergade",
+      "shelf": "D5",
+      "language": "Danish",
+      "genre": "Family",
+      "playerCount": "2-8",
+      "difficulty": "Easy"
     },
-    "language": "English",
-    "genre": "Trivia",
-    "players": "2-4",
-    "difficulty": "Medium"
-  },
-  {
-    "name": "Brain Box - Science EN",
-    "locations": {
-      "Vestergade": "C6"
+    "game23": {
+      "name": "Brain Box - Once Upon A Time",
+      "location": "Vestergade",
+      "shelf": "C6",
+      "language": "English",
+      "genre": "Trivia",
+      "playerCount": "2-4",
+      "difficulty": "Medium"
     },
-    "language": "English",
-    "genre": "Trivia",
-    "players": "2-4",
-    "difficulty": "Medium"
-  },
-  {
-    "name": "Brain Box - The World EN",
-    "locations": {
-      "Vestergade": "C6"
+    "game24": {
+      "name": "Brain Box - Science EN",
+      "location": "Vestergade",
+      "shelf": "C6",
+      "language": "English",
+      "genre": "Trivia",
+      "playerCount": "2-4",
+      "difficulty": "Medium"
     },
-    "language": "English",
-    "genre": "Trivia",
-    "players": "2-4",
-    "difficulty": "Medium"
-  },
-  {
-    "name": "Just One (eng.)",
-    "locations": {
-      "Vestergade": "C6"
+    "game25": {
+      "name": "Brain Box - The World EN",
+      "location": "Vestergade",
+      "shelf": "C6",
+      "language": "English",
+      "genre": "Trivia",
+      "playerCount": "2-4",
+      "difficulty": "Medium"
     },
-    "language": "English",
-    "genre": "Party",
-    "players": "3-6",
-    "difficulty": "Easy"
-  },
-  {
-    "name": "Paperback",
-    "locations": {
-      "Vestergade": "C6"
+    "game26": {
+      "name": "Just One (eng.)",
+      "location": "Vestergade",
+      "shelf": "C6",
+      "language": "English",
+      "genre": "Party",
+      "playerCount": "3-6",
+      "difficulty": "Easy"
     },
-    "language": "English",
-    "genre": "Card Game",
-    "players": "2-5",
-    "difficulty": "Medium"
-  },
-  {
-    "name": "Wits & Wagers: It's Vegas Baby!",
-    "locations": {
-      "Vestergade": "C6"
+    "game27": {
+      "name": "Paperback",
+      "location": "Vestergade",
+      "shelf": "C6",
+      "language": "English",
+      "genre": "Card Game",
+      "playerCount": "2-5",
+      "difficulty": "Medium"
     },
-    "language": "English",
-    "genre": "Party",
-    "players": "4-10",
-    "difficulty": "Medium"
-  },
-  {
-    "name": "Dream Home",
-    "locations": {
-      "Vestergade": "C5"
+    "game28": {
+      "name": "Wits & Wagers: It's Vegas Baby!",
+      "location": "Vestergade",
+      "shelf": "C6",
+      "language": "English",
+      "genre": "Party",
+      "playerCount": "4-10",
+      "difficulty": "Medium"
     },
-    "language": "English",
-    "genre": "Strategy",
-    "players": "2-4",
-    "difficulty": "Medium"
-  },
-  {
-    "name": "Machi Koro",
-    "locations": {
-      "Vestergade": "C5",
-      "Kolding": "D4"
+    "game29": {
+      "name": "Dream Home",
+      "location": "Vestergade",
+      "shelf": "C5",
+      "language": "English",
+      "genre": "Strategy",
+      "playerCount": "2-4",
+      "difficulty": "Medium"
     },
-    "language": "English",
-    "genre": "Strategy",
-    "players": "2-4",
-    "difficulty": "Medium"
-  },
-  {
-    "name": "Planet",
-    "locations": {
-      "Vestergade": "C5",
-      "Fredensgade": "E1",
-      "Aalborg": "C2"
+    "game30": {
+      "name": "Machi Koro",
+      "location": "Vestergade, Kolding",
+      "shelf": "C5, D4",
+      "language": "English",
+      "genre": "Strategy",
+      "playerCount": "2-4",
+      "difficulty": "Medium"
     },
-    "language": "English",
-    "genre": "Strategy",
-    "players": "2-4",
-    "difficulty": "Medium"
-  },
-  {
-    "name": "Seikatsu",
-    "locations": {
-      "Vestergade": "C5"
+    "game31": {
+      "name": "Planet",
+      "location": "Vestergade, Fredensgade, Aalborg",
+      "shelf": "C5, E1, C2",
+      "language": "English",
+      "genre": "Strategy",
+      "playerCount": "2-4",
+      "difficulty": "Medium"
     },
-    "language": "English",
-    "genre": "Abstract Strategy",
-    "players": "2",
-    "difficulty": "Medium"
-  },
-  {
-    "name": "Celestia",
-    "locations": {
-      "Vestergade": "C4"
+    "game32": {
+      "name": "Seikatsu",
+      "location": "Vestergade",
+      "shelf": "C5",
+      "language": "English",
+      "genre": "Abstract Strategy",
+      "playerCount": "2",
+      "difficulty": "Medium"
     },
-    "language": "English",
-    "genre": "Party",
-    "players": "2-6",
-    "difficulty": "Easy"
-  },
-  {
-    "name": "Haru Ichiban",
-    "locations": {
-      "Vestergade": "C4"
+    "game33": {
+      "name": "Celestia",
+      "location": "Vestergade",
+      "shelf": "C4",
+      "language": "English",
+      "genre": "Party",
+      "playerCount": "2-6",
+      "difficulty": "Easy"
     },
-    "language": "English",
-    "genre": "Abstract Strategy",
-    "players": "2-4",
-    "difficulty": "Medium"
-  },
-  {
-    "name": "Mascarade",
-    "locations": {
-      "Vestergade": "C4"
+    "game34": {
+      "name": "Haru Ichiban",
+      "location": "Vestergade",
+      "shelf": "C4",
+      "language": "English",
+      "genre": "Abstract Strategy",
+      "playerCount": "2-4",
+      "difficulty": "Medium"
     },
-    "language": "English",
-    "genre": "Party",
-    "players": "2-13",
-    "difficulty": "Medium"
-  },
-  {
-    "name": "Schotten Totten",
-    "locations": {
-      "Vestergade": "C4"
+    "game35": {
+      "name": "Mascarade",
+      "location": "Vestergade",
+      "shelf": "C4",
+      "language": "English",
+      "genre": "Party",
+      "playerCount": "2-13",
+      "difficulty": "Medium"
     },
-    "language": "English",
-    "genre": "Card Game",
-    "players": "2",
-    "difficulty": "Medium"
-  },
-  {
-    "name": "*NY* Gnome Kingdom",
-    "locations": {
-      "Vestergade": "C3",
-      "Fredensgade": "TOP",
-      "Kolding": "G5"
+    "game36": {
+      "name": "Schotten Totten",
+      "location": "Vestergade",
+      "shelf": "C4",
+      "language": "English",
+      "genre": "Card Game",
+      "playerCount": "2",
+      "difficulty": "Medium"
     },
-    "language": "English",
-    "genre": "Strategy",
-    "players": "2-4",
-    "difficulty": "Medium"
-  },
-  {
-    "name": "Kuzooka",
-    "locations": {
-      "Vestergade": "C2"
+    "game37": {
+      "name": "*NY* Gnome Kingdom",
+      "location": "Vestergade, Fredensgade, Kolding",
+      "shelf": "C3, TOP, G5",
+      "language": "English",
+      "genre": "Strategy",
+      "playerCount": "2-4",
+      "difficulty": "Medium"
     },
-    "language": "English",
-    "genre": "Card Game",
-    "players": "2-4",
-    "difficulty": "Medium"
-  },
-  {
-    "name": "So Many Clues",
-    "locations": {
-      "Vestergade": "B6"
+    "game38": {
+      "name": "Kuzooka",
+      "location": "Vestergade",
+      "shelf": "C2",
+      "language": "English",
+      "genre": "Card Game",
+      "playerCount": "2-4",
+      "difficulty": "Medium"
     },
-    "language": "English",
-    "genre": "Party",
-    "players": "3-8",
-    "difficulty": "Easy"
-  },
-  {
-    "name": "Detective Club",
-    "locations": {
-      "Vestergade": "B5"
+    "game39": {
+      "name": "So Many Clues",
+      "location": "Vestergade",
+      "shelf": "B6",
+      "language": "English",
+      "genre": "Party",
+      "playerCount": "3-8",
+      "difficulty": "Easy"
     },
-    "language": "English",
-    "genre": "Party",
-    "players": "4-8",
-    "difficulty": "Medium"
-  },
-  {
-    "name": "Scarabya",
-    "locations": {
-      "Vestergade": "B5"
+    "game40": {
+      "name": "Detective Club",
+      "location": "Vestergade",
+      "shelf": "B5",
+      "language": "English",
+      "genre": "Party",
+      "playerCount": "4-8",
+      "difficulty": "Medium"
     },
-    "language": "English",
-    "genre": "Abstract Strategy",
-    "players": "2-4",
-    "difficulty": "Easy"
-  },
-  {
-    "name": "Taboo",
-    "locations": {
-      "Vestergade": "B5"
+    "game41": {
+      "name": "Scarabya",
+      "location": "Vestergade",
+      "shelf": "B5",
+      "language": "English",
+      "genre": "Abstract Strategy",
+      "playerCount": "2-4",
+      "difficulty": "Easy"
     },
-    "language": "English",
-    "genre": "Party",
-    "players": "4+",
-    "difficulty": "Easy"
-  },
-  {
-    "name": "Det Dårlige Selskab: Ekstra Sort",
-    "locations": {
-      "Vestergade": "B4",
-      "Aalborg": "J3",
-      "Kolding": "F3"
+    "game42": {
+      "name": "Taboo",
+      "location": "Vestergade",
+      "shelf": "B5",
+      "language": "English",
+      "genre": "Party",
+      "playerCount": "4+",
+      "difficulty": "Easy"
     },
-    "language": "Danish",
-    "genre": "Party",
-    "players": "4-20",
-    "difficulty": "Easy"
-  },
-  {
-    "name": "Det Dårlige Selskab: Året der gik galt 2022",
-    "locations": {
-      "Vestergade": "B4"
+    "game43": {
+      "name": "Det Dårlige Selskab: Ekstra Sort",
+      "location": "Vestergade, Aalborg, Kolding",
+      "shelf": "B4, J3, F3",
+      "language": "Danish",
+      "genre": "Party",
+      "playerCount": "4-20",
+      "difficulty": "Easy"
     },
-    "language": "Danish",
-    "genre": "Party",
-    "players": "4-20",
-    "difficulty": "Easy"
-  },
-  {
-    "name": "Axio",
-    "locations": {
-      "Vestergade": "A5",
-      "Kolding": "H4",
-      "Fredensgade": "B1"
+    "game44": {
+      "name": "Det Dårlige Selskab: Året der gik galt 2022",
+      "location": "Vestergade",
+      "shelf": "B4",
+      "language": "Danish",
+      "genre": "Party",
+      "playerCount": "4-20",
+      "difficulty": "Easy"
     },
-    "language": "English",
-    "genre": "Abstract Strategy",
-    "players": "2",
-    "difficulty": "Medium"
-  },
-  {
-    "name": "Quoridor",
-    "locations": {
-      "Vestergade": "A5",
-      "Fredensgade": "A1"
+    "game45": {
+      "name": "Axio",
+      "location": "Vestergade, Kolding, Fredensgade",
+      "shelf": "A5, H4, B1",
+      "language": "English",
+      "genre": "Abstract Strategy",
+      "playerCount": "2",
+      "difficulty": "Medium"
     },
-    "language": "English",
-    "genre": "Abstract Strategy",
-    "players": "2-4",
-    "difficulty": "Easy"
-  },
-  {
-    "name": "Trivial Pursuit Disney Edition",
-    "locations": {
-      "Vestergade": "A5"
+    "game46": {
+      "name": "Quoridor",
+      "location": "Vestergade, Fredensgade",
+      "shelf": "A5, A1",
+      "language": "English",
+      "genre": "Abstract Strategy",
+      "playerCount": "2-4",
+      "difficulty": "Easy"
     },
-    "language": "English",
-    "genre": "Trivia",
-    "players": "2-6",
-    "difficulty": "Medium"
-  },
-  {
-    "name": "Arboretum",
-    "locations": {
-      "Vestergade": "A4",
-      "Aalborg": "F5"
+    "game47": {
+      "name": "Trivial Pursuit Disney Edition",
+      "location": "Vestergade",
+      "shelf": "A5",
+      "language": "English",
+      "genre": "Trivia",
+      "playerCount": "2-6",
+      "difficulty": "Medium"
     },
-    "language": "English",
-    "genre": "Card Game",
-    "players": "2-4",
-    "difficulty": "Medium"
-  },
-  {
-    "name": "Fantasy Realms",
-    "locations": {
-      "Vestergade": "A4",
-      "Aalborg": "B3"
+    "game48": {
+      "name": "Arboretum",
+      "location": "Vestergade, Aalborg",
+      "shelf": "A4, F5",
+      "language": "English",
+      "genre": "Card Game",
+      "playerCount": "2-4",
+      "difficulty": "Medium"
     },
-    "language": "English",
-    "genre": "Card Game",
-    "players": "2-6",
-    "difficulty": "Easy"
-  },
-  {
-    "name": "Pinata",
-    "locations": {
-      "Vestergade": "A4"
+    "game49": {
+      "name": "Fantasy Realms",
+      "location": "Vestergade, Aalborg",
+      "shelf": "A4, B3",
+      "language": "English",
+      "genre": "Card Game",
+      "playerCount": "2-6",
+      "difficulty": "Easy"
     },
-    "language": "English",
-    "genre": "Party",
-    "players": "2-4",
-    "difficulty": "Easy"
-  },
-  {
-    "name": "Mastermind 44",
-    "locations": {
-      "Vestergade": "A1"
+    "game50": {
+      "name": "Pinata",
+      "location": "Vestergade",
+      "shelf": "A4",
+      "language": "English",
+      "genre": "Party",
+      "playerCount": "2-4",
+      "difficulty": "Easy"
     },
-    "language": "English",
-    "genre": "Puzzle",
-    "players": "2",
-    "difficulty": "Medium"
-  },
-  {
-    "name": "Splendor Marvel",
-    "locations": {
-      "Vestergade": "I4"
+    "game51": {
+      "name": "Mastermind 44",
+      "location": "Vestergade",
+      "shelf": "A1",
+      "language": "English",
+      "genre": "Puzzle",
+      "playerCount": "2",
+      "difficulty": "Medium"
     },
-    "language": "English",
-    "genre": "Strategy",
-    "players": "2-4",
-    "difficulty": "Medium"
-  },
-  {
-    "name": "Wingspan (Dansk)",
-    "locations": {
-      "Vestergade": "TOP"
+    "game52": {
+      "name": "Splendor Marvel",
+      "location": "Vestergade",
+      "shelf": "I4",
+      "language": "English",
+      "genre": "Strategy",
+      "playerCount": "2-4",
+      "difficulty": "Medium"
     },
-    "language": "Danish",
-    "genre": "Strategy",
-    "players": "1-5",
-    "difficulty": "Medium"
-  },
-  {
-    "name": "7 for the Queen",
-    "locations": {
-      "Vestergade": "J3"
+    "game53": {
+      "name": "Wingspan (Dansk)",
+      "location": "Vestergade",
+      "shelf": "TOP",
+      "language": "Danish",
+      "genre": "Strategy",
+      "playerCount": "1-5",
+      "difficulty": "Medium"
     },
-    "language": "English",
-    "genre": "Strategy",
-    "players": "2-4",
-    "difficulty": "Medium"
-  },
-  {
-    "name": "7 Souls",
-    "locations": {
-      "Vestergade": "G6"
+    "game54": {
+      "name": "7 for the Queen",
+      "location": "Vestergade",
+      "shelf": "J3",
+      "language": "English",
+      "genre": "Strategy",
+      "playerCount": "2-4",
+      "difficulty": "Medium"
     },
-    "language": "English",
-    "genre": "Strategy",
-    "players": "2-4",
-    "difficulty": "Hard"
-  },
-  {
-    "name": "A Battle Through History",
-    "locations": {
-      "Vestergade": "B6",
-      "Kolding": "H5"
+    "game55": {
+      "name": "7 Souls",
+      "location": "Vestergade",
+      "shelf": "G6",
+      "language": "English",
+      "genre": "Strategy",
+      "playerCount": "2-4",
+      "difficulty": "Hard"
     },
-    "language": "English",
-    "genre": "Strategy",
-    "players": "2-4",
-    "difficulty": "Medium"
-  },
-  {
-    "name": "A Column of Fire",
-    "locations": {
-      "Vestergade": "C2"
+    "game56": {
+      "name": "A Battle Through History",
+      "location": "Vestergade, Kolding",
+      "shelf": "B6, H5",
+      "language": "English",
+      "genre": "Strategy",
+      "playerCount": "2-4",
+      "difficulty": "Medium"
     },
-    "language": "English",
-    "genre": "Strategy",
-    "players": "2-4",
-    "difficulty": "Medium"
-  },
-  {
-    "name": "A war of whispers",
-    "locations": {
-      "Vestergade": "E5",
-      "Fredensgade": "TOP"
+    "game57": {
+      "name": "A Column of Fire",
+      "location": "Vestergade",
+      "shelf": "C2",
+      "language": "English",
+      "genre": "Strategy",
+      "playerCount": "2-4",
+      "difficulty": "Medium"
     },
-    "language": "English",
-    "genre": "Strategy",
-    "players": "2-6",
-    "difficulty": "Medium"
-  },
-  {
-    "name": "A-Å",
-    "locations": {
-      "Vestergade": "F6"
+    "game58": {
+      "name": "A war of whispers",
+      "location": "Vestergade, Fredensgade",
+      "shelf": "E5, TOP",
+      "language": "English",
+      "genre": "Strategy",
+      "playerCount": "2-6",
+      "difficulty": "Medium"
     },
-    "language": "Danish",
-    "genre": "Card Game",
-    "players": "2-4",
-    "difficulty": "Easy"
-  },
-  {
-    "name": "Alchemists",
-    "locations": {
-      "Vestergade": "E4",
-      "Aalborg": "H2"
+    "game59": {
+      "name": "A-Å",
+      "location": "Vestergade",
+      "shelf": "F6",
+      "language": "Danish",
+      "genre": "Card Game",
+      "playerCount": "2-4",
+      "difficulty": "Easy"
     },
-    "language": "English",
-    "genre": "Strategy",
-    "players": "2-4",
-    "difficulty": "Hard"
-  },
-  {
-    "name": "Aldabas",
-    "locations": {
-      "Vestergade": "H6"
+    "game60": {
+      "name": "Alchemists",
+      "location": "Vestergade, Aalborg",
+      "shelf": "E4, H2",
+      "language": "English",
+      "genre": "Strategy",
+      "playerCount": "2-4",
+      "difficulty": "Hard"
     },
-    "language": "English",
-    "genre": "Abstract Strategy",
-    "players": "2-4",
-    "difficulty": "Medium"
-  },
-  {
-    "name": "Ali Baba",
-    "locations": {
-      "Vestergade": "E5"
+    "game61": {
+      "name": "Aldabas",
+      "location": "Vestergade",
+      "shelf": "H6",
+      "language": "English",
+      "genre": "Abstract Strategy",
+      "playerCount": "2-4",
+      "difficulty": "Medium"
     },
-    "language": "English",
-    "genre": "Abstract Strategy",
-    "players": "2-4",
-    "difficulty": "Medium"
-  },
-  {
-    "name": "Alias Børne",
-    "locations": {
-      "Vestergade": "H6"
+    "game62": {
+      "name": "Ali Baba",
+      "location": "Vestergade",
+      "shelf": "E5",
+      "language": "English",
+      "genre": "Abstract Strategy",
+      "playerCount": "2-4",
+      "difficulty": "Medium"
     },
-    "language": "Danish",
-    "genre": "Children's Game",
-    "players": "2-6",
-    "difficulty": "Medium"
+    "game63": {
+      "name": "Alias Børne",
+      "location": "Vestergade",
+      "shelf": "H6",
+      "language": "Danish",
+      "genre": "Children's Game",
+      "playerCount": "2-6",
+      "difficulty": "Medium"
+    }
   }
-]
+}
 
