@@ -84,8 +84,11 @@ const Login = () => {
           </button>
         </form>
         <p>
-          Don't have an account? <Link to="/signup">Sign Up</Link>
-        </p>
+      Don't have an account? 
+      <Link to="/signup" style={{ color: "#ed1433" }}>
+        Sign Up
+      </Link>
+    </p>
 
         {loading && <div className={styles.loading}>Loading...</div>}
         {error && <div className={styles.error}>{error}</div>}
