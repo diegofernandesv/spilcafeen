@@ -1,15 +1,12 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import styles from "./Auth.module.css";
+import styles from "./Auth.module.css"; // Import CSS Module
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
-// Firebase imports
+// Import Firebase modules
 import { auth, db } from "../firebase";
-import {
-  createUserWithEmailAndPassword,
-  fetchSignInMethodsForEmail,
-} from "firebase/auth";
-import { ref, set } from "firebase/database";
+import { createUserWithEmailAndPassword, fetchSignInMethodsForEmail } from "firebase/auth"; 
+import { ref, set } from "firebase/database"; // Import Realtime Database modules
 
 const SignUp = () => {
   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -18,17 +15,17 @@ const SignUp = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const navigate = useNavigate();
-
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [securityCode, setSecurityCode] = useState(""); // New state for security code
 
   const handleSignUp = async (e) => {
     e.preventDefault();
     setError("");
 
-    if (!name || !email || !password || !confirmPassword) {
+    if (name === "" || email === "" || password === "" || confirmPassword === "" || securityCode === "") {
       setError("Please fill in all required fields");
       return;
     }
@@ -48,27 +45,27 @@ const SignUp = () => {
       return;
     }
 
+    // Check if the entered security code is correct
+    const correctSecurityCode = "Admin123";
+    if (securityCode !== correctSecurityCode) {
+      setError("Incorrect security code");
+      return;
+    }
+
     setLoading(true);
     try {
+      // Check if email is already in use
       const signInMethods = await fetchSignInMethodsForEmail(auth, email);
       if (signInMethods.length > 0) {
-        setError(
-          `This email is already registered using: ${signInMethods.join(
-            ", "
-          )}. Try logging in instead.`
-        );
+        setError("The email is already in use");
         setLoading(false);
         return;
       }
 
-      const userCredential = await createUserWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
 
-      // Save user data in Realtime Database
+      // Add user to Realtime Database
       await set(ref(db, `users/${user.uid}`), {
         name: name,
         email: email,
@@ -77,14 +74,16 @@ const SignUp = () => {
         provider: "email",
       });
 
-      // Clear inputs
+      // Reset state values
       setName("");
       setEmail("");
       setPassword("");
       setConfirmPassword("");
+      setSecurityCode(""); // Reset security code
+
       navigate("/dashboard");
     } catch (error) {
-      console.error("Signup error:", error);
+      console.log(error);
       if (error.code === "auth/network-request-failed") {
         setError("Oops. Check your internet connection");
       } else if (error.code === "auth/weak-password") {
@@ -149,13 +148,20 @@ const SignUp = () => {
               />
               <span
                 className={styles.eyeIcon}
-                onClick={() =>
-                  setConfirmPasswordVisible(!confirmPasswordVisible)
-                }
+                onClick={() => setConfirmPasswordVisible(!confirmPasswordVisible)}
               >
                 {confirmPasswordVisible ? <FaEyeSlash /> : <FaEye />}
               </span>
             </div>
+            {/* Security Code Input */}
+            <input
+              value={securityCode}
+              onChange={(e) => setSecurityCode(e.target.value)}
+              className={styles.authInput}
+              type="text"
+              placeholder="Security Code"
+              id="security-code"
+            />
             <button className={styles.authButton} type="submit" disabled={loading}>
               {loading ? "Creating Account..." : "Create Account"}
             </button>
