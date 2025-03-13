@@ -52,7 +52,7 @@ function Sidebar() {
           <h1 className={styles.logoText}>SpilCaféen</h1>
         </div>
         <nav className={styles.navLinks}>
-          <a className={styles.navItemactive}>
+          <Link to="/dashboard" className={styles.navItemactive}>
             <div>
               <svg
                 id="1:13"
@@ -71,11 +71,9 @@ function Sidebar() {
                 ></path>
               </svg>
             </div>
-            <span>
-              <Link to="/dashboard">Dashboard</Link>
-            </span>
-          </a>
-          <a className={styles.navItem}>
+            <span>Dashboard</span>
+          </Link>
+          <Link to="/inventory" className={styles.navItem}>
             <div>
               <svg
                 id="1:17"
@@ -94,11 +92,9 @@ function Sidebar() {
                 ></path>
               </svg>
             </div>
-            <span>
-              <Link to="/inventory">Inventory</Link>
-            </span>
-          </a>
-          <a className={styles.navItem}>
+            <span>Inventory</span>
+          </Link>
+          <Link to="/websitecontent" className={styles.navItem}>
             <div>
               <svg
                 id="1:31"
@@ -118,8 +114,8 @@ function Sidebar() {
               </svg>
             </div>
             <span>Website Content</span>
-          </a>
-          <a className={styles.navItem}>
+          </Link>
+          <Link to="/calendar" className={styles.navItem}>
             <div>
               <svg
                 id="13:3"
@@ -138,11 +134,9 @@ function Sidebar() {
                 ></path>
               </svg>
             </div>
-            <span>
-              <Link to="/calendar">Calendar</Link>
-            </span>
-          </a>
-          <a className={styles.navItem}>
+            <span>Calendar</span>
+          </Link>
+          <Link to="/report" className={styles.navItem}>
             <div>
               <svg
                 id="13:9"
@@ -162,8 +156,8 @@ function Sidebar() {
               </svg>
             </div>
             <span>Report</span>
-          </a>
-          <a className={styles.navItem}>
+          </Link>
+          <Link to="/ratings-reviews" className={styles.navItem}>
             <div>
               <svg
                 id="1:25"
@@ -183,8 +177,8 @@ function Sidebar() {
               </svg>
             </div>
             <span>Ratings & Reviews</span>
-          </a>
-          <a className={styles.navItem}>
+          </Link>
+          <Link to="/settings" className={styles.navItem}>
             <div>
               <svg
                 id="1:41"
@@ -214,8 +208,8 @@ function Sidebar() {
               </svg>
             </div>
             <span>Settings</span>
-          </a>
-          <a className={styles.navItem}>
+          </Link>
+          <Link to="/login" className={styles.navItem}>
             <div>
               <svg
                 id="5:202"
@@ -234,10 +228,8 @@ function Sidebar() {
                 ></path>
               </svg>
             </div>
-            <span>
-              <Link to="/login">Account</Link>
-            </span>
-          </a>
+            <span>Account</span>
+          </Link>
         </nav>
       </aside>
     </>

@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import styles from "./Inventory.module.css"; // Import CSS Module
 import Sidebar from "../components/Sidebar";
 import { FaEdit, FaSearch, FaMapMarkerAlt, FaLanguage, FaTags, FaUsers, FaTachometerAlt, FaLayerGroup, FaTrash } from "react-icons/fa"; // Import icons
-import { database } from "../firebase"; // Import the database instance from firebase.js
-import { ref, onValue } from "firebase/database"; // Import Firebase Realtime Database modules
+import { database } from "../firebase.js"; // Import the database instance from firebase.js
+import { ref, onValue, remove, set } from "firebase/database"; // Import Firebase Realtime Database modules
 
 const Inventory = () => {
   const [filters, setFilters] = useState({
@@ -55,16 +55,32 @@ const Inventory = () => {
   };
 
   const handleSaveClick = () => {
-    setGames((prevGames) =>
-      prevGames.map((game) =>
-        game.name === editingGame.name ? editingGame : game
-      )
-    );
-    setEditingGame(null);
+    const gameRef = ref(database, `boardGames/${editingGame.name}`);
+    set(gameRef, editingGame)
+      .then(() => {
+        setGames((prevGames) =>
+          prevGames.map((game) =>
+            game.name === editingGame.name ? editingGame : game
+          )
+        );
+        setEditingGame(null);
+      })
+      .catch((error) => {
+        console.error("Error updating game: ", error);
+      });
   };
 
   const handleDeleteClick = (gameName) => {
-    setGames((prevGames) => prevGames.filter((game) => game.name !== gameName));
+    if (window.confirm("Are you sure you want to delete this game?")) {
+      const gameRef = ref(database, `boardGames/${gameName}`);
+      remove(gameRef)
+        .then(() => {
+          setGames((prevGames) => prevGames.filter((game) => game.name !== gameName));
+        })
+        .catch((error) => {
+          console.error("Error deleting game: ", error);
+        });
+    }
   };
 
   const filteredGames = games.filter((game) => {

@@ -171,8 +171,12 @@ function ActionButtons() {
               />
             </div>
             <div className={styles.dialogActions}>
-              <button onClick={handleDialogClose} className={styles.dialogButton}>Cancel</button>
-              <button onClick={handleAddGame} className={styles.dialogButton}>Add</button>
+              <button onClick={handleDialogClose} className={styles.dialogButton}>
+                Cancel
+              </button>
+              <button onClick={handleAddGame} className={styles.dialogButton}>
+                Add
+              </button>
             </div>
           </div>
         </div>

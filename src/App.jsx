@@ -6,6 +6,7 @@ import Dashboard from "./views/Dashboard";
 import Inventory from "./views/Inventory";
 import PrivateRoute from "./components/PrivateRoute";
 import Calendar from "./components/Calendar";
+import ContentView from "./views/ContentView";
 import styles from "./App.module.css"; // Import the CSS module for styling
 
 function App() {
@@ -37,6 +38,14 @@ function App() {
               element={
                 <PrivateRoute>
                   <Calendar />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/websitecontent"
+              element={
+                <PrivateRoute>
+                  <ContentView />
                 </PrivateRoute>
               }
             />

@@ -1,0 +1,102 @@
+/* ContentView.module.css */
+
+/* Apply Aeonik font to the entire container */
+.contentViewContainer {
+    display: flex;
+    font-family: 'Aeonik', sans-serif;
+  }
+  
+
+.content h1 {
+    font-family: 'Aeonik', sans-serif;
+    font-weight: 700;
+    font-size: 32px;
+    margin-top: 48px;
+}
+
+  
+  .content {
+    flex: 1;
+    padding: 20px;
+    background-color: #f4f4f4;
+    font-family: 'Aeonik', sans-serif;
+  }
+  
+  .pagesList {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-family: 'Aeonik', sans-serif;
+  }
+  
+  .pageCard {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-family: 'Aeonik', sans-serif;
+  }
+  
+  
+  .pageCard p {
+    margin: 0;
+    font-family: 'Aeonik', sans-serif;
+  }
+  
+  .editIcon, .deleteIcon {
+    cursor: pointer;
+    margin-right: 10px;
+    font-family: 'Aeonik', sans-serif;
+  }
+  
+  .editIcon {
+    color: #dc3545;
+  }
+  
+  .deleteIcon {
+    color: #dc3545;
+  }
+  
+  /* Add styles for the new game form and game cards */
+  .addButton {
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-family: 'Aeonik', sans-serif;
+  }
+  
+  .newGameForm {
+    margin-bottom: 20px;
+    font-family: 'Aeonik', sans-serif;
+  }
+  
+  .newGameForm input,
+  .newGameForm textarea {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 8px;
+    font-family: 'Aeonik', sans-serif;
+  }
+  
+  .gameCard {
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    font-family: 'Aeonik', sans-serif;
+  }
+  
+  .gameImage {
+    max-width: 100%;
+    height: auto;
+    margin-top: 10px;
+  }
+
+  .sidebarFullHeight {
+    height: 100vh; /* Ensure the sidebar takes the full height of the viewport */
+    overflow-y: auto; /* Add scroll if content overflows */
+  }

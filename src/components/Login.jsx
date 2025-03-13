@@ -39,34 +39,37 @@ const Login = () => {
   };
 
   return (
-    <div className={styles.loginContainer}>
-      <h1>Welcome to Spilcafeen</h1>
-      <div className={styles.loginBox}>
+    <div className={styles.authContainer}>
+      <div className={styles.authBox}>
         <h2>Login</h2>
         <form onSubmit={handleLogin} onChange={() => setError("")}>
-          <input
-            className={styles.inputField}
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="Email"
-            id="email"
-          />
-          <div className={styles.inputWrapper}>
+          <div className={styles.inputGroup}>
             <input
-              className={styles.passwordInput}
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              type={passwordVisible ? "text" : "password"}
-              placeholder="Password"
-              id="password"
+              className={styles.inputField}
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Email"
+              id="email"
             />
-            <span
-              className={styles.eyeIcon}
-              onClick={() => setPasswordVisible(!passwordVisible)}
-            >
-              {passwordVisible ? <FaEyeSlash /> : <FaEye />}
-            </span>
+          </div>
+          <div className={styles.inputGroup}>
+            <div className={styles.inputWrapper}>
+              <input
+                className={styles.passwordInput}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                type={passwordVisible ? "text" : "password"}
+                placeholder="Password"
+                id="password"
+              />
+              <span
+                className={styles.eyeIcon}
+                onClick={() => setPasswordVisible(!passwordVisible)}
+              >
+                {passwordVisible ? <FaEyeSlash /> : <FaEye />}
+              </span>
+            </div>
           </div>
           <div className={styles.options}>
             <label className={styles.switch}>

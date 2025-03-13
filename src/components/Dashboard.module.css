@@ -307,6 +307,7 @@ body {
   font-weight: 700;
 }
 
+
 .locationStats {
   gap: 8px;
   margin-bottom: 15px;
@@ -329,7 +330,7 @@ body {
 .statCard {
   background-color: #fafafa;
   border-radius: 12px;
-  width: 217px;
+  width: 266px;
   padding: 8px 22px;
   box-shadow: 0 1px 3px #0000000f;
 }
@@ -505,4 +506,43 @@ body {
   .actionBtnmanageBtn {
     width: 100%;
   }
+}
+
+.dialogInput {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.dialogInput:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.dialogActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px; /* Adjust the gap to make buttons closer */
+  margin-top: 20px;
+}
+
+.dialogButton {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.dialogButton:first-child {
+  background-color: #ccc;
+  color: #000;
+}
+
+.dialogButton:last-child {
+  background-color: #ed1433;
+  color: #fff;
 }
