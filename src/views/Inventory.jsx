@@ -1,9 +1,19 @@
 import React, { useState, useEffect } from "react";
-import styles from "./Inventory.module.css"; // Import CSS Module
+import styles from "./Inventory.module.css";
 import Sidebar from "../components/Sidebar";
-import { FaEdit, FaSearch, FaMapMarkerAlt, FaLanguage, FaTags, FaUsers, FaTachometerAlt, FaLayerGroup, FaTrash } from "react-icons/fa"; // Import icons
-import { database } from "../firebase.js"; // Import the database instance from firebase.js
-import { ref, onValue, remove, set } from "firebase/database"; // Import Firebase Realtime Database modules
+import {
+  FaEdit,
+  FaSearch,
+  FaMapMarkerAlt,
+  FaLanguage,
+  FaTags,
+  FaUsers,
+  FaTachometerAlt,
+  FaLayerGroup,
+  FaTrash,
+} from "react-icons/fa";
+import { database } from "../firebase.js";
+import { ref, onValue, remove, set } from "firebase/database";
 
 const Inventory = () => {
   const [filters, setFilters] = useState({
@@ -13,25 +23,32 @@ const Inventory = () => {
     players: "",
     difficulty: "",
     shelf: "",
-    search: "", // Add search filter
+    search: "",
   });
 
   const [games, setGames] = useState([]);
-  const [editingGame, setEditingGame] = useState(null); // State to track the game being edited
+  const [editingGame, setEditingGame] = useState(null);
 
   useEffect(() => {
-    const boardGamesRef = ref(database, 'boardGames');
-    onValue(boardGamesRef, (snapshot) => {
-      const data = snapshot.val();
-      if (data) {
-        const gamesList = Object.keys(data).map(key => data[key]);
-        setGames(gamesList);
-      } else {
-        setGames([]);
+    const boardGamesRef = ref(database, "boardGames");
+    onValue(
+      boardGamesRef,
+      (snapshot) => {
+        const data = snapshot.val();
+        if (data) {
+          const gamesList = Object.keys(data).map((key) => ({
+            id: key, // include Firebase key
+            ...data[key],
+          }));
+          setGames(gamesList);
+        } else {
+          setGames([]);
+        }
+      },
+      (error) => {
+        console.error("Error fetching data: ", error);
       }
-    }, (error) => {
-      console.error("Error fetching data: ", error);
-    });
+    );
   }, []);
 
   const handleFilterChange = (e) => {
@@ -43,7 +60,7 @@ const Inventory = () => {
   };
 
   const handleEditClick = (game) => {
-    setEditingGame(game);
+    setEditingGame({ ...game });
   };
 
   const handleInputChange = (e) => {
@@ -55,12 +72,12 @@ const Inventory = () => {
   };
 
   const handleSaveClick = () => {
-    const gameRef = ref(database, `boardGames/${editingGame.name}`);
+    const gameRef = ref(database, `boardGames/${editingGame.id}`);
     set(gameRef, editingGame)
       .then(() => {
         setGames((prevGames) =>
           prevGames.map((game) =>
-            game.name === editingGame.name ? editingGame : game
+            game.id === editingGame.id ? editingGame : game
           )
         );
         setEditingGame(null);
@@ -70,12 +87,14 @@ const Inventory = () => {
       });
   };
 
-  const handleDeleteClick = (gameName) => {
+  const handleDeleteClick = (gameId) => {
     if (window.confirm("Are you sure you want to delete this game?")) {
-      const gameRef = ref(database, `boardGames/${gameName}`);
+      const gameRef = ref(database, `boardGames/${gameId}`);
       remove(gameRef)
         .then(() => {
-          setGames((prevGames) => prevGames.filter((game) => game.name !== gameName));
+          setGames((prevGames) =>
+            prevGames.filter((game) => game.id !== gameId)
+          );
         })
         .catch((error) => {
           console.error("Error deleting game: ", error);
@@ -85,13 +104,14 @@ const Inventory = () => {
 
   const filteredGames = games.filter((game) => {
     return (
-      (filters.location === "" || game.location.includes(filters.location)) &&
+      (filters.location === "" || game.location?.includes(filters.location)) &&
       (filters.language === "" || game.language === filters.language) &&
       (filters.genre === "" || game.genre === filters.genre) &&
       (filters.players === "" || game.playerCount === filters.players) &&
       (filters.difficulty === "" || game.difficulty === filters.difficulty) &&
-      (filters.shelf === "" || game.shelf.includes(filters.shelf)) &&
-      (filters.search === "" || game.name.toLowerCase().includes(filters.search.toLowerCase()))
+      (filters.shelf === "" || game.shelf?.includes(filters.shelf)) &&
+      (filters.search === "" ||
+        game.name.toLowerCase().includes(filters.search.toLowerCase()))
     );
   });
 
@@ -113,7 +133,11 @@ const Inventory = () => {
           </div>
           <div className={styles.filterItem}>
             <FaMapMarkerAlt className={styles.filterIcon} />
-            <select name="location" value={filters.location} onChange={handleFilterChange}>
+            <select
+              name="location"
+              value={filters.location}
+              onChange={handleFilterChange}
+            >
               <option value="">All Locations</option>
               <option value="Vestergade">Vestergade</option>
               <option value="Fredensgade">Fredensgade</option>
@@ -123,7 +147,11 @@ const Inventory = () => {
           </div>
           <div className={styles.filterItem}>
             <FaLanguage className={styles.filterIcon} />
-            <select name="language" value={filters.language} onChange={handleFilterChange}>
+            <select
+              name="language"
+              value={filters.language}
+              onChange={handleFilterChange}
+            >
               <option value="">All Languages</option>
               <option value="Danish">Danish</option>
               <option value="English">English</option>
@@ -131,7 +159,11 @@ const Inventory = () => {
           </div>
           <div className={styles.filterItem}>
             <FaTags className={styles.filterIcon} />
-            <select name="genre" value={filters.genre} onChange={handleFilterChange}>
+            <select
+              name="genre"
+              value={filters.genre}
+              onChange={handleFilterChange}
+            >
               <option value="">All Genres</option>
               <option value="Fantasy">Fantasy</option>
               <option value="Sci-Fi">Sci-Fi</option>
@@ -144,7 +176,11 @@ const Inventory = () => {
           </div>
           <div className={styles.filterItem}>
             <FaUsers className={styles.filterIcon} />
-            <select name="players" value={filters.players} onChange={handleFilterChange}>
+            <select
+              name="players"
+              value={filters.players}
+              onChange={handleFilterChange}
+            >
               <option value="">All Players</option>
               <option value="2">2</option>
               <option value="2-4">2-4</option>
@@ -153,7 +189,11 @@ const Inventory = () => {
           </div>
           <div className={styles.filterItem}>
             <FaTachometerAlt className={styles.filterIcon} />
-            <select name="difficulty" value={filters.difficulty} onChange={handleFilterChange}>
+            <select
+              name="difficulty"
+              value={filters.difficulty}
+              onChange={handleFilterChange}
+            >
               <option value="">All Difficulties</option>
               <option value="Easy">Easy</option>
               <option value="Medium">Medium</option>
@@ -162,7 +202,11 @@ const Inventory = () => {
           </div>
           <div className={styles.filterItem}>
             <FaLayerGroup className={styles.filterIcon} />
-            <select name="shelf" value={filters.shelf} onChange={handleFilterChange}>
+            <select
+              name="shelf"
+              value={filters.shelf}
+              onChange={handleFilterChange}
+            >
               <option value="">All Shelves</option>
               <option value="A1">A1</option>
               <option value="B2">B2</option>
@@ -172,9 +216,9 @@ const Inventory = () => {
           </div>
         </div>
         <div className={styles.gamesList}>
-          {filteredGames.map((game, index) => (
-            <div key={index} className={styles.gameCard}>
-              {editingGame && editingGame.name === game.name ? (
+          {filteredGames.map((game) => (
+            <div key={game.id} className={styles.gameCard}>
+              {editingGame && editingGame.id === game.id ? (
                 <div>
                   <input
                     type="text"
@@ -216,15 +260,38 @@ const Inventory = () => {
                 </div>
               ) : (
                 <div>
-                  <FaEdit onClick={() => handleEditClick(game)} className={styles.editIcon} />
-                  <FaTrash onClick={() => handleDeleteClick(game.name)} className={styles.editIcon2} />
+                  <FaEdit
+                    onClick={() => handleEditClick(game)}
+                    className={styles.editIcon}
+                  />
+                  <FaTrash
+                    onClick={() => handleDeleteClick(game.id)}
+                    className={styles.editIcon2}
+                  />
                   <h2>{game.name}</h2>
-                  <p><FaMapMarkerAlt className={styles.infoIcon} /> Location: {game.location}</p>
-                  <p><FaLanguage className={styles.infoIcon} /> Language: {game.language}</p>
-                  <p><FaTags className={styles.infoIcon} /> Genre: {game.genre}</p>
-                  <p><FaUsers className={styles.infoIcon} /> Players: {game.playerCount}</p>
-                  <p><FaTachometerAlt className={styles.infoIcon} /> Difficulty: {game.difficulty}</p>
-                  <p><FaLayerGroup className={styles.infoIcon} /> Shelf: {game.shelf}</p>
+                  <p>
+                    <FaMapMarkerAlt className={styles.infoIcon} /> Location:{" "}
+                    {game.location}
+                  </p>
+                  <p>
+                    <FaLanguage className={styles.infoIcon} /> Language:{" "}
+                    {game.language}
+                  </p>
+                  <p>
+                    <FaTags className={styles.infoIcon} /> Genre: {game.genre}
+                  </p>
+                  <p>
+                    <FaUsers className={styles.infoIcon} /> Players:{" "}
+                    {game.playerCount}
+                  </p>
+                  <p>
+                    <FaTachometerAlt className={styles.infoIcon} /> Difficulty:{" "}
+                    {game.difficulty}
+                  </p>
+                  <p>
+                    <FaLayerGroup className={styles.infoIcon} /> Shelf:{" "}
+                    {game.shelf}
+                  </p>
                 </div>
               )}
             </div>

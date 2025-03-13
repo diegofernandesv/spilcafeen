@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import styles from "./Auth.module.css"; // Import CSS Module
+import styles from "./Auth.module.css";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
-// Import Firebase modules
+// Firebase imports
 import { auth, db } from "../firebase";
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import { doc, setDoc } from "firebase/firestore";
+import {
+  createUserWithEmailAndPassword,
+  fetchSignInMethodsForEmail,
+} from "firebase/auth";
+import { ref, set } from "firebase/database";
 
 const SignUp = () => {
   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -15,6 +18,7 @@ const SignUp = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const navigate = useNavigate();
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -23,8 +27,8 @@ const SignUp = () => {
   const handleSignUp = async (e) => {
     e.preventDefault();
     setError("");
-    
-    if (name === "" || email === "" || password === "" || confirmPassword === "") {
+
+    if (!name || !email || !password || !confirmPassword) {
       setError("Please fill in all required fields");
       return;
     }
@@ -46,24 +50,42 @@ const SignUp = () => {
 
     setLoading(true);
     try {
-      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-      await setDoc(doc(db, "users", userCredential.user.uid), {
+      const signInMethods = await fetchSignInMethodsForEmail(auth, email);
+      if (signInMethods.length > 0) {
+        setError(
+          `This email is already registered using: ${signInMethods.join(
+            ", "
+          )}. Try logging in instead.`
+        );
+        setLoading(false);
+        return;
+      }
+
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      const user = userCredential.user;
+
+      // Save user data in Realtime Database
+      await set(ref(db, `users/${user.uid}`), {
         name: name,
         email: email,
-        uid: userCredential.user.uid,
-        creationDate: new Date(),
+        uid: user.uid,
+        creationDate: new Date().toISOString(),
         provider: "email",
       });
+
+      // Clear inputs
       setName("");
       setEmail("");
       setPassword("");
       setConfirmPassword("");
       navigate("/dashboard");
     } catch (error) {
-      console.log(error);
-      if (error.code === "auth/email-already-in-use") {
-        setError("The email is already in use");
-      } else if (error.code === "auth/network-request-failed") {
+      console.error("Signup error:", error);
+      if (error.code === "auth/network-request-failed") {
         setError("Oops. Check your internet connection");
       } else if (error.code === "auth/weak-password") {
         setError("Your password must be at least 6 characters long");
@@ -127,7 +149,9 @@ const SignUp = () => {
               />
               <span
                 className={styles.eyeIcon}
-                onClick={() => setConfirmPasswordVisible(!confirmPasswordVisible)}
+                onClick={() =>
+                  setConfirmPasswordVisible(!confirmPasswordVisible)
+                }
               >
                 {confirmPasswordVisible ? <FaEyeSlash /> : <FaEye />}
               </span>

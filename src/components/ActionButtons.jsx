@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styles from "./Dashboard.module.css";
-import { getDatabase, ref, push, update } from "firebase/database";
+import { ref, push, set } from "firebase/database";
+import { db } from "../firebase"; // Ensure Firebase is initialized somewhere
 
 function ActionButtons() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -32,23 +33,24 @@ function ActionButtons() {
   };
 
   const handleAddGame = async () => {
-    if (!newGame.name || !newGame.location || !newGame.language || !newGame.genre || !newGame.playerCount || !newGame.difficulty || !newGame.shelf) {
+    const { name, location, language, genre, playerCount, difficulty, shelf } = newGame;
+
+    if (!name || !location || !language || !genre || !playerCount || !difficulty || !shelf) {
       alert("Please fill in all fields.");
       return;
     }
 
     try {
-      const db = getDatabase();
-      const gamesRef = ref(db, "boardGames");
-      const newGameRef = push(gamesRef);
-      await update(newGameRef, {
-        name: newGame.name,
-        location: newGame.location,
-        language: newGame.language,
-        genre: newGame.genre,
-        playerCount: newGame.playerCount,
-        difficulty: newGame.difficulty,
-        shelf: newGame.shelf,
+      const gamesRef = ref(db, "boardGames"); // Use 'db' initialized from Firebase
+      const newGameRef = push(gamesRef); // Create a new game reference
+      await set(newGameRef, {
+        name,
+        location,
+        language,
+        genre,
+        playerCount,
+        difficulty,
+        shelf,
         createdAt: Date.now()
       });
       handleDialogClose();
@@ -63,8 +65,6 @@ function ActionButtons() {
       <button className={styles.actionBtnaddBtn} onClick={handleDialogOpen}>
         <div>
           <svg
-            id="5:98"
-            layer-name="gg:add"
             width="25"
             height="24"
             viewBox="0 0 25 24"
@@ -89,11 +89,10 @@ function ActionButtons() {
         </div>
         <span>Add new game</span>
       </button>
+
       <button className={styles.actionBtnmanageBtn}>
         <div>
           <svg
-            id="5:104"
-            layer-name="ic:round-inventory"
             width="25"
             height="24"
             viewBox="0 0 25 24"
@@ -120,55 +119,16 @@ function ActionButtons() {
           <div className={styles.dialog}>
             <div className={styles.dialogTitle}>Add New Game</div>
             <div className={styles.dialogContent}>
-              <input
-                type="text"
-                placeholder="Game Name"
-                value={newGame.name}
-                onChange={(e) => setNewGame({ ...newGame, name: e.target.value })}
-                className={styles.dialogInput}
-              />
-              <input
-                type="text"
-                placeholder="Location"
-                value={newGame.location}
-                onChange={(e) => setNewGame({ ...newGame, location: e.target.value })}
-                className={styles.dialogInput}
-              />
-              <input
-                type="text"
-                placeholder="Language"
-                value={newGame.language}
-                onChange={(e) => setNewGame({ ...newGame, language: e.target.value })}
-                className={styles.dialogInput}
-              />
-              <input
-                type="text"
-                placeholder="Genre"
-                value={newGame.genre}
-                onChange={(e) => setNewGame({ ...newGame, genre: e.target.value })}
-                className={styles.dialogInput}
-              />
-              <input
-                type="text"
-                placeholder="Player Count"
-                value={newGame.playerCount}
-                onChange={(e) => setNewGame({ ...newGame, playerCount: e.target.value })}
-                className={styles.dialogInput}
-              />
-              <input
-                type="text"
-                placeholder="Difficulty"
-                value={newGame.difficulty}
-                onChange={(e) => setNewGame({ ...newGame, difficulty: e.target.value })}
-                className={styles.dialogInput}
-              />
-              <input
-                type="text"
-                placeholder="Shelf"
-                value={newGame.shelf}
-                onChange={(e) => setNewGame({ ...newGame, shelf: e.target.value })}
-                className={styles.dialogInput}
-              />
+              {["name", "location", "language", "genre", "playerCount", "difficulty", "shelf"].map((field) => (
+                <input
+                  key={field}
+                  type="text"
+                  placeholder={field.charAt(0).toUpperCase() + field.slice(1)}
+                  value={newGame[field]}
+                  onChange={(e) => setNewGame({ ...newGame, [field]: e.target.value })}
+                  className={styles.dialogInput}
+                />
+              ))}
             </div>
             <div className={styles.dialogActions}>
               <button onClick={handleDialogClose} className={styles.dialogButton}>
